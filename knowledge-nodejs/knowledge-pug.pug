@@ -1,0 +1,17 @@
+//1 we can reuse the object name in pug file by using #{nameObject} or li= user.name (strictly space)
+
+//2 Search
+form(action="/users/search", method="GET")
+input(type="text", name="q")
+button Search
+
+	//make sure name="q" is smae as the q in the variable
+	in req.query.q.
+
+//3 add users detail
+form(action="/users/create", method="POST")
+	label Name
+	input(name="name", type="text")
+ 
+ 	//make sure "name" is strictly same as key in the objects of users variable;
+ 	
