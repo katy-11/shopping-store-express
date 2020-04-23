@@ -20,13 +20,10 @@ app.get('/', function(req, res) {
 		name: 'Coders Tokyo',
 	});
 }); 
-// app.get('/styles/custom.css', function(req, res) {
-// 	res.send('abc');
-// }); // example. this is not the popular way
+
 app.use('/users', userRoute);
 
 app.listen(3000, function() {
 	console.log('Server listening at port 3000');
 });
 
-//Method GET, POST, ..
