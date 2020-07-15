@@ -1,17 +1,42 @@
 var express = require('express');
+var multer = require('multer');
 
 var controller = require('../controllers/user.controller');
-var validate = require('../validate/user.validate')
-var router = express.Router();
+var validate = require('../validate/user.validate');
+var authMiddleware = require('../middleware/auth.middleware');
 
-router.get('/', controller.index); 
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, './public/uploads/')
+  },
+  filename: function(req, file, cb) {
+    console.log(file)
+    cb(null, file.originalname)
+  }
+})
+var upload = multer({ 
+  storage: storage
+});
 
-router.get('/search', controller.search);
+var userRouter = express.Router('');
 
-router.get('/create', controller.create);
+userRouter.get('/', controller.index);
 
-router.get('/:id', controller.get);
+userRouter.get('/cookie', controller.cookie);
 
-router.post('/create', validate.postCreate, controller.postCreate);
+userRouter.get('/create', controller.create);
 
-module.exports = router;
+userRouter.get('/view/:id', controller.view);
+
+userRouter.get('/view/:id/update', controller.viewUpdate);
+
+userRouter.get('/view/:id/delete', controller.viewDelete);
+
+userRouter.post('/create', 
+                upload.single('avatar'), 
+                validate.postCreate, 
+                controller.postCreate);
+
+userRouter.post('/view/:id/update', validate.postViewUpdate, controller.postViewUpdate);
+
+module.exports = userRouter;

@@ -3,14 +3,11 @@ module.exports.postCreate = (req, res, next) => {
   if (!req.body.name) {
     errors.push('Name is required');
   }
-  if (req.body.name.length > 30) {
-    errors.push('Name is less than 30 characters')
-  }
-  if (!req.body.age) {
-    errors.push('Age is required');
+  if (!req.body.desc) {
+    errors.push('Description is required');
   }
   if (errors.length) {
-    res.render('users/create', {
+    res.render('books/create', {
       errors: errors,
       values: req.body
     });
@@ -20,13 +17,13 @@ module.exports.postCreate = (req, res, next) => {
   next();
 };
 
-module.exports.postViewUpdate = (req, res, next) => {
-  var errors = [];
-  // if (!req.body.name) {
-  //   errors.push('New name is required');
-  // }
+module.exports.postViewEdit = (req, res, next) => {
+   var errors = [];
+  if (!req.body.name) {
+    errors.push('New name is required');
+  }
   if (errors.length) {
-    res.render('users/update', {
+    res.render('books/edit', {
       id: req.params.id,
       errors: errors
     });

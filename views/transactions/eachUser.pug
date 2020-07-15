@@ -1,0 +1,17 @@
+extends ../layouts/common
+
+block content
+
+  h1
+    span Your transactions
+    a.btn.btn-primary.float-right(href="/transactions/create") New transaction
+  table.table
+    tr
+      th Book name
+      th Description
+      th Status
+    each book, index in booksList
+      tr
+        td= book.name
+        td= book.desc
+        td= returnStatus[index]

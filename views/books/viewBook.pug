@@ -1,0 +1,20 @@
+extends ../layouts/common
+
+block content
+
+  h1 Book details
+  b Name:
+  |
+  |
+  span= book.name
+  br
+  b Description:
+  |
+  |
+  span= book.desc
+  br
+  a(href="/books/view/" + book.id + "/edit") Edit name
+  br
+  a(href="/books/view/" + book.id + "/delete") Delete book
+  br
+  a(href="/books") Back

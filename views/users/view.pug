@@ -1,7 +1,26 @@
 extends ../layouts/common
 
 block content
-	h1 View user
-	p
-		b Name
-		span= user.name
+  h1 View user detail
+  b Name:
+  |
+  |
+  span= user.name
+  |
+  |
+  a.btn.btn-primary.btn-sm(href="/users/view/" + user.id + "/update") Update
+  br
+  b Age:
+  |
+  |
+  span= user.age
+  br
+  br
+  a.btn.btn-primary.btn-sm(href="/users/view/" + user.id + "/delete") Delete this user
+  br
+  br
+  a(href="/books") All books
+  br
+  a(href="/users") All users
+  br
+  a(href="/transactions") All transactions

@@ -1,19 +1,15 @@
 extends ../layouts/common
 
 block content
-	h1 Create user
-
-	if errors
-		each error in errors
-			.alert.alert-danger= error
-
-	form(action="/users/create", method="POST")
-		.form-group
-			label(for="name") Name
-			input#name.form-control(name="name", type="text", value=values ? values.name : '')
-
-		.form-group
-			label(for="phone") Phone
-			input#phone.form-control(name="phone", type="text", value=values ? values.phone : '')
-
-		button Create
+  h1 Create new user
+  if errors
+    each error in errors
+      .alert.alert-danger= error
+  form(action="/users/create" method="POST" enctype="multipart/form-data")
+    input(name="name", class="mb-2", placeholder="Your name", value=values ? values.name : "")
+    br
+    input(name="age", class="mb-2", placeholder="Your age", value=values ? values.age : "")
+    br
+    input(name="avatar", class="mb-2", type="file")
+    br
+    button(class="btn btn-primary") Create

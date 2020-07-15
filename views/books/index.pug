@@ -1,0 +1,29 @@
+extends ../layouts/common
+
+block content
+
+  h1
+    span Book list
+    a.btn.btn-primary.float-right(href="/books/create") Create new book
+  div.container
+    .row
+      each book in books
+        .card.col-lg-3.col-sm-12.col-md-4.mb-3
+          img.card-img-top(src= book.coverUrl)
+          .card-body
+            h5
+              a.card-title(href="/books/view/" + book.id)= book.name
+            p.card-text= book.desc
+            a.btn.bg-secondary(href='/cart/add/' + book.id) Add to cart
+block page
+  nav.float-right(aria-label='...')
+    ul.pagination
+      li.page-item
+        a.page-link(href="/products", tabindex='-1', aria-disabled='true') First
+      li.page-item.active(aria-current='page')
+        a.page-link(href="/products?page=" + page)= page
+          span.sr-only (current)
+      li.page-item
+        a.page-link(href="/products?page=" + ++page)= page
+      li.page-item
+        a.page-link(href="/products?page=" + ++page)= page

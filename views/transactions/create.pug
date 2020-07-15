@@ -1,0 +1,20 @@
+extends ../layouts/common
+
+block content
+  h1 Make transactions
+  form(action="/transactions/create", method="POST", class="mb-2")
+    label(for="user") User name
+    |
+    |
+    select(id="user" name="userId")
+      each user in users
+        option(value= user.id)= user.name
+    br
+    label(for="book") Book
+    |
+    |
+    select(id="book" name="bookId")
+      each book in books
+        option(value= book.id)= book.name
+    br
+    button(class="btn btn-primary") Create

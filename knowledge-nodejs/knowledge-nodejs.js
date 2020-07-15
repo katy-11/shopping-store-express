@@ -5,23 +5,37 @@
 
 	app.set('view engine', 'pug');
 
-	app.set('views', './views'); //file js name and path
-
-//2 TEMPLATE ENGINES
-	app.get('/', function(req, res) {
-		res.render('index', {
-			name: 'AAA'	
-		});
-	}); 
-
-	app.get('/users', function(req, res) {
-	res.send('User list>');
-	}); //in real project,we will render to get users list data and send data to client, 
-	// not link the user list data to the client
+	app.set('views', './views'); //file js name and path, 
+	//views will be roots for any engine template
 
 	app.listen(3000, function() {
 		console.log('Server listening at port 3000');
 	});
+
+//2 TEMPLATE ENGINES
+	
+	app.get('/path', function(req, res) {
+		res.send('String');
+	}); 
+	//in real, we will not render to get and send data from that "String" to client
+	// we will link the path need to be rendered from the engine template 
+	//and send to client then
+
+	res.render('params1', params2);
+	//params1: is path whom root is from views
+	//params2: is object include a couple of properties which is key: value;
+		//we can call that key in the template engine by #{key}
+		//example: 
+			//server-side
+				app.get('/', function(req, res) {
+					res.render('index', {
+						name: 'AAA'	
+					});
+				}); 
+			//pug side 
+				h1 Hello #{name}
+				//result: Hello AAA
+
 
 	//Method GET, POST, ..
 
