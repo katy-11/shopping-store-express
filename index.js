@@ -23,6 +23,7 @@ var sessionMiddleware = require('./middleware/session.middleware');
 
 var cartItem = require('./controllers/cart.controller.js');
 
+var port = process.env.PORT || 3000;
 var app = express();
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -56,7 +57,7 @@ app.use('/api/product', apiProductRouter);
 // }); 
 
 
-app.listen(3000, function() {
+app.listen(port, function() {
 	console.log('Server listening at port 3000');
 });
 
