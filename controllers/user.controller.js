@@ -3,7 +3,19 @@ var db = require("../db");
 
 const sgMail = require("@sendgrid/mail");
 
-module.exports.index = (req, res) => {
+module.exports.index = (req, res) => { 
+  // function add(a, b) {
+  //   if (typeof a !== 'string' || typeof b !== 'string') {
+  //     throw new Error('Wrong type')
+  //   }
+  //   return a + b;
+  // }
+  // try {
+  //   var result = add('a', 2)
+  // } catch (error) {
+  //   console.error(error)
+  // }
+  // console.log('test end')
   var usersList = db.get("users").value();
   res.render("users/index", {
     users: usersList

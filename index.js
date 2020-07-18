@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 
+
 mongoose.connect(process.env.MONGO_URL);
 
 var cookieRouter = require('./routes/cookie.route');
@@ -15,7 +16,6 @@ var productRouter = require('./routes/product.route');
 var profileRouter = require('./routes/profile.route');
 var transactionRouter = require('./routes/transaction.route');
 var cartRouter = require('./routes/cart.route');
-
 
 
 var authMiddleware = require('./middleware/auth.middleware');
@@ -29,10 +29,14 @@ app.set('views', './views');
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+var apiProductRouter = require('./api/routes/product.route');
+
 app.use(cookieParser('process.env.SESSION_SECRET'));
 app.use(sessionMiddleware);
 
 app.use(express.static('public'));
+app.use(express.static('views/dist'));
 
 app.use('/', cookieRouter);
 app.use('/auth', authRouter);
@@ -43,6 +47,7 @@ app.use('/products', productRouter);
 app.use('/profile', authMiddleware.requireAuth, profileRouter);
 app.use('/cart', cartRouter);
 
+app.use('/api/product', apiProductRouter);
 //routers
 // app.get('/', function(req, res) {
 // 	res.render('index', {
