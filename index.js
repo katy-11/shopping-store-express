@@ -43,7 +43,7 @@ app.use('/', cookieRouter);
 app.use('/auth', authRouter);
 app.use('/books', cartItem.addToCart, bookRouter);
 app.use('/transactions', authMiddleware.requireAuth, transactionRouter);
-app.use('/users', authMiddleware.requireAuth, userRouter);
+app.use('/users', userRouter);
 app.use('/products', productRouter);
 app.use('/profile', authMiddleware.requireAuth, profileRouter);
 app.use('/cart', cartRouter);
