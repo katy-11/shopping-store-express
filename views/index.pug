@@ -1,5 +1,90 @@
 extends ./layouts/common
 
 block content
-	h1 Hello #{name}
-	a(href='/users') Users list
+  .container.banner
+      .banner-body
+          h1 New arrivals
+          h2 SALE
+          p Up to 50% off
+          a(href="#") Shop now
+  .container.home-categories-list
+      .row
+          .col-sm-12.col-lg-4.home-categories-item
+              .image.image-1
+              h3.font-10 New arrivals
+              p Set yourself up for sartorial success <br> with latest bags, shoes and accessories
+          .col-sm-12.col-lg-4.home-categories-item
+              .image.image-2
+              h3.font-10 Best-sellings
+              p Must-haves for the season
+          .col-sm-12.col-lg-4.home-categories-item
+              .image.image-3
+              h3.font-10 Big sale
+              p Set yourself up for sartorial success <br> with latest bags, shoes and accessories
+  //- Start divider 
+  .divider
+  //- Start Trending
+  .container.home-header.font-11 Trending now
+  .container.trending-list
+      .row
+          .col-sm-12.col-lg-3.trending-item
+              .image.image-4
+              p Buckle Strap Croc-Effect Bag
+          .col-sm-12.col-lg-3.trending-item
+              .image.image-5
+              p Front Buckle Slingback Mules
+          .col-sm-12.col-lg-3.trending-item
+              .image.image-6
+              p Geometric Tote Bag
+          .col-sm-12.col-lg-3.trending-item
+              .image.image-7
+              p Metal Frame Sunglasses
+  //- Start Most viewed
+  .divider
+  .container.home-header.font-11 Most-viewed
+  .seperate-line
+  .container
+      .row
+          .col-sm-12.col-lg-2
+            div
+              label.font-7.label-bottom FRAIS
+              ul.menu-list-bottom.flex-column
+                a(href='#')
+                  li.menu-item-bottom SHOP ALL
+                a(href='#')
+                  li.menu-item-bottom FOR BODY
+                a(href='#')
+                  li.menu-item-bottom FOR HOME
+                a(href='#')
+                  li.menu-item-bottom ABOUT
+                a(href='#')
+                  li.menu-item-bottom CONTACT
+          .col-sm-12.col-lg-3
+            label.font-7.label-bottom HELP
+            .menu-bar
+              ul.menu-list-bottom.flex-column
+                a(href='#')
+                  li.menu-item-bottom SHOP ALL
+                a(href='#')
+                  li.menu-item-bottom SHIPPING AND RETURN
+                a(href='#')
+                  li.menu-item-bottom FOR HOME
+                a(href='#')
+                  li.menu-item-bottom PAYMENT METHOD
+          .col-sm-12.col-lg-3
+            label.font-7.label-bottom CONTACT
+            .menu-bar
+              ul.menu-list-bottom.flex-column
+                a(href='#')
+                  li.menu-item-bottom 123-456-7890
+                a(href='#')
+                  li.menu-item-bottom INFO@MY-DOMAIN.COM
+                a(href='#')
+                  li.menu-item-bottom FOR HOME
+          .col-sm-12.col-lg-4
+            label.font-7.label-bottom NEWS LETTER
+            .subscribe
+              label(for='email-address', style="color: #424242 ; font-family: 'Questrial', sans-serif;        font-size: 14px;") Enter Email *
+              input#email-address(type='text', placeholder='Email:')
+              a(href='#')
+                button.button-effect SUBSCRIBE

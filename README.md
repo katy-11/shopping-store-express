@@ -1,2 +1,2 @@
-This is the code to practice in expressJS
-I will commit every lession I have learn in expressJs playlist 
+Basic commmercial shopping site for practicing
+Site name: Kattie

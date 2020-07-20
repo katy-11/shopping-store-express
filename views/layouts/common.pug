@@ -1,27 +1,77 @@
 head
-  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
-  link(rel='stylesheet', href='/css/custom.css')
-nav.navbar.navbar-expand-lg.navbar-light.bg-secondary
-  a.navbar-brand(href='#') CodersX
-  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-    span.navbar-toggler-icon
-  #navbarSupportedContent.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-      li.nav-item.active
-        a.nav-link(href='/books')
-          | Books 
-          span.sr-only (current)
-      li.nav-item
-        a.nav-link(href='/users') Users
-      li.nav-item
-        a.nav-link(href='/cart' id="cart")= "Cart(" + itemCount + ")"
-      li.nav-item
-        a.nav-link(href='/transactions/userTransaction') Transactions
-  if user
-    a(href="/profile", style={color:"black"}) Profile
-    span &nbsp
-    img.rounded-circle(src= user.avatarUrl, width= "32", height="32")
-    p= user.name
-.container.pt-3
-  block content
-  block page
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+  // Font
+  link(href='https://fonts.googleapis.com/css2?family=Ubuntu:wght@800&display=swap', rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Questrial&display=swap', rel='stylesheet')
+  // Additional CSS file
+  link(rel="stylesheet", href="/css/main.css")
+  link(rel="stylesheet", href="/css/page.css")
+  link(rel="stylesheet", href="/css/all.min.css")
+  link(rel="stylesheet", href="/css/fontawesome.min.css")
+  title Kattie
+
+.container-fluid
+  .row.pre-header1 FREE SHIPPING ON ORDERS OVER $50
+// Navigation
+.container 
+  .row
+    img.logo-img(src='/images/logo-kattie.png')
+.container
+  .header-menu.flex-column.flex-md-row
+    .menu-bar
+      ul.menu-bar-list
+        a(href='/new-arrivals')
+          li.menu-bar-item NEW ARRIVALS
+        a(href='/tops')
+          li.menu-bar-item TOPS
+        a(href='/dresses')
+          li.menu-bar-item DRESSES
+        a(href='/bottoms')
+          li.menu-bar-item BOTTOMS
+        a(href='/sales')
+          li.menu-bar-item SALES
+        a(href='/contact')
+          li.menu-bar-item CONTACT US
+    .profile-bar
+      input.mr-3.search-btn(type='search', name='', placeholder='Search')
+      <i class="fas fa-minus"></i>
+      a(href="/sign-in" class="menu-bar-list") Sign in
+      <i class="fas fa-minus"></i>
+      if user 
+        .user-option
+          .user-option-click
+            img.rounded-circle(src= user.avatarUrl, width= "32", height="32")
+            i.fas.fa-chevron-down.small-icon
+            div
+              ul.profile-wrapper.p-0
+                a(href='#')
+                  li My orders
+                a(href='#')
+                  li My wallet
+                a(href='#')
+                  li My addresses
+                a(href='#')
+                  li My points
+            //- i.fas.fa-user-circle.mr-1
+            //- i.fas.fa-chevron-down.small-icon
+            //- div
+            //-   ul.profile-wrapper.p-0
+            //-     a(href='#')
+            //-       li My orders
+            //-     a(href='#')
+            //-       li My wallet
+            //-     a(href='#')
+            //-       li My addresses
+            //-     a(href='#')
+            //-       li My points
+      i.fas.fa-shopping-bag.p-3
+block content
+  //- if user
+  //-   a(href="/profile", style={color:"black"}) Profile
+  //-   span &nbsp
+  //-   img.rounded-circle(src= user.avatarUrl, width= "32", height="32")
+  //-   p= user.name
