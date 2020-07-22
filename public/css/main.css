@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	color: #424242;
 }
-dl, ol, ul, li, img {
+dl, ol, ul, li, img, label {
     margin-top: 0;
     margin-bottom: 0;
     list-style: none;
@@ -44,10 +44,11 @@ html, body {
 .container-fluid .pre-header1 {
 	text-align: center;
 	justify-content: center;
-	padding: 10px 0;
+	padding: 8px 0;
 	background-color: #aebdac; 
 	color: #424242;
 	letter-spacing: 3px;
+	font-size: 15px;
 }
 .container .row .logo-img {
 	margin: 25px 0;

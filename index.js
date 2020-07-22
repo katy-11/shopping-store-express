@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URL);
 
+var adminRoute = require('./routes/admin.route')
 var topRoute = require('./routes/top.route');
 
 // var authMiddleware = require('./middleware/auth.middleware');
@@ -23,7 +24,7 @@ app.set('views', './views');
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// var apiProductRouter = require('./api/routes/product.route');
+var apiTopRoute = require('./api/routes/top.route');
 
 app.use(cookieParser('process.env.SESSION_SECRET'));
 // app.use(sessionMiddleware);
@@ -35,8 +36,9 @@ app.get('/', (req, res) => {
 app.use(express.static('public'));
 app.use(express.static('views/dist'));
 
+app.use('/admin', adminRoute);
 app.use('/tops', topRoute);
-
+app.use('/api', apiTopRoute);
 
 app.listen(port, function() {
 	console.log('Server listening at port 3000');

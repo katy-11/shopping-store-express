@@ -1,0 +1,22 @@
+extends ../layouts/common
+
+block content
+    .container
+        h1 Create new tops
+        form(action="/admin/create" method="POST" enctype="multipart/form-data")
+            input.mb-2(name="name", placeholder="Top name", value=values ? values.name : "")
+            br
+            input.mb-2(name="desc", placeholder="Top description", , value=values ? values.desc : "")
+            br
+            input.mb-2(name="price", placeholder="Top price", , value=values ? values.desc : "")
+            br
+            input(name="imageUrl", class="mb-2", type="file")
+            br
+            button(class="btn btn-primary") Create
+        h1  All tops
+        ul
+            each top in tops
+                a(href="/admin/edit/top/" + top._id)= top.name
+                br
+
+       
