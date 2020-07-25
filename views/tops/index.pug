@@ -84,7 +84,7 @@ block content
 				.product-wrapper
 					.row
 						each top in tops
-							.product-item.col-4
+							.product-item.col-4(data-page-number="0" data-product-details={"id": top._id, "name": top.name, "price": top.price, "imageUrl": top.imageUrl})
 								.product-carousel
 									a(href="#")
 										img(src=top.imageUrl)
@@ -93,4 +93,7 @@ block content
 										a(href="#")
 									.product-title-price= "AU$" + top.price + ".00"
 								.product-title-footer
+									.product-title-color
+									.add-to-cart Add to bag
+
 						

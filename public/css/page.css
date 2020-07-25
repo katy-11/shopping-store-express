@@ -76,4 +76,22 @@
 	max-width: 100%;
 }
 .product-item {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
+.product-title-footer {
+	width: 90%;
+	transition: all 0.1s;
+	visibility: hidden;
+}
+.add-to-cart {
+	height: 30px;
+	background-color: rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+}
+.product-item:hover .product-title-footer {
+	visibility: visible;
+}
+
