@@ -14,6 +14,7 @@ a {
 	color: #424242;
 }
 a:hover {
+	text-decoration: none;	
 	color: #424242;
 }
 html, body {
@@ -125,8 +126,10 @@ html, body {
 	z-index: 99999;
 }
 /*Cart*/
-#cart-icon {
+#minicart {
 	position: relative;
+}
+#cart-icon {
 	padding: 3px 3px;
 }
 .cart {
@@ -176,9 +179,20 @@ html, body {
 	height: 49px;
 	object-fit: cover;
 }
-.cart-item .cart-item-name {
+.cart-item .cart-item-body {
 	flex-grow: 1;
 	margin: 0 10px;
+}
+.cart-item-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.cart-item-name {
+	margin-bottom: 10px;
+}
+.cart-item-quantity {
+	font-size: 10px;
 }
 
 .total-price {

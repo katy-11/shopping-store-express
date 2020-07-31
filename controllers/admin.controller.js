@@ -52,6 +52,6 @@ module.exports.postCreate = async (req, res) => {
       "https://res.cloudinary.com/huyendxnkgd/image/upload/v1593021031/testProjectGlitch/defaultAvatar.png";
   }
   var top = await Top.create(req.body);
-  res.send("done");
+  res.redirect('/admin/create');
 };
 
