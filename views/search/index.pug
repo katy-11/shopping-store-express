@@ -1,0 +1,97 @@
+extends ../layouts/common
+
+block content
+	.container-fluid
+		.page-body
+			.refinement-bar
+				.refinement-card
+					.refinement-heading
+						span.refinement-header Tops
+						span.refinement-clear
+							span.refinement-clear-text Clear
+							i(class="fas fa-times refinement-clear-icon")
+					.refinement-selected-values
+					.refinement-scroll-body
+						.refinement-item
+							.custom-checkbox
+								input#refinement-croptop(type="checkbox")
+								label(for="refinement-croptop" class="refinement-sub")
+									span Crop top
+							.custom-checkbox
+								input#refinement-sweater(type="checkbox")
+								label(for="refinement-sweater" class="refinement-sub")
+									span Sweater
+							.custom-checkbox
+								input#refinement-denim(type="checkbox")
+								label(for="refinement-denim" class="refinement-sub")
+									span Denim
+							.custom-checkbox
+								input#refinement-hoodie(type="checkbox")
+								label(for="refinement-hoodie" class="refinement-sub")
+									span Hoddie
+				.refinement-card
+					.refinement-heading
+						span.refinement-header Tops
+						span.refinement-clear
+							span.refinement-clear-text Clear
+							i(class="fas fa-times refinement-clear-icon")
+					.refinement-selected-values
+					.refinement-scroll-body
+						.refinement-item
+							.custom-checkbox
+								input#refinement-croptop(type="checkbox")
+								label(for="refinement-croptop" class="refinement-sub")
+									span Crop top
+							.custom-checkbox
+								input#refinement-sweater(type="checkbox")
+								label(for="refinement-sweater" class="refinement-sub")
+									span Sweater
+							.custom-checkbox
+								input#refinement-denim(type="checkbox")
+								label(for="refinement-denim" class="refinement-sub")
+									span Denim
+							.custom-checkbox
+								input#refinement-hoodie(type="checkbox")
+								label(for="refinement-hoodie" class="refinement-sub")
+									span Hoddie	
+				.refinement-card
+					.refinement-heading
+						span.refinement-header Tops
+						span.refinement-clear
+							span.refinement-clear-text Clear
+							i(class="fas fa-times refinement-clear-icon")
+					.refinement-selected-values
+					.refinement-scroll-body
+						.refinement-item
+							.custom-checkbox
+								input#refinement-croptop(type="checkbox")
+								label(for="refinement-croptop" class="refinement-sub")
+									span Crop top
+							.custom-checkbox
+								input#refinement-sweater(type="checkbox")
+								label(for="refinement-sweater" class="refinement-sub")
+									span Sweater
+							.custom-checkbox
+								input#refinement-denim(type="checkbox")
+								label(for="refinement-denim" class="refinement-sub")
+									span Denim
+							.custom-checkbox
+								input#refinement-hoodie(type="checkbox")
+								label(for="refinement-hoodie" class="refinement-sub")
+									span Hoddie		
+			.product-showroom
+				.product-wrapper
+					.row
+						each item in itemList
+							.product-item.col-4(data-page-number="0" data-product-details={"id": item._id, "name": item.name, "price": item.price, "imageUrl": item.imageUrl})
+								.product-carousel
+									a(href="/tops/" + item.id)
+										img(src=item.imageUrl)
+								.product-title-body
+									a(href="/tops/" + item.id, class= "product-title-name")= item.name
+										a(href="/tops/" + item.id)
+									.product-title-price= "AU$" + item.price + ".00"
+								.product-title-footer
+									.product-title-color
+									.add-to-cart Add to bag
+	

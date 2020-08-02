@@ -38,7 +38,8 @@ head
         a(href='/admin/create')
           li.menu-bar-item CONTACT US
     .profile-bar
-      input.mr-3.search-btn(type='search', name='', placeholder='Search')
+      form(action="/search" method="GET")
+        input.mr-3.search-btn(type='search', name='q', placeholder='Search')
       <i class="fas fa-minus"></i>
       a(href="/sign-in" class="menu-bar-list") Sign in
       <i class="fas fa-minus"></i>

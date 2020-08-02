@@ -7,8 +7,8 @@
 
 .refinement-bar {
 	margin-top: 20px;
-	flex: 1 0 auto;
-	flex-basis: 230px;
+	flex: 0 0 230px;
+	/*flex-basis: 230px;*/
 	/*original flex-basic: 230px but after put .row in product-showroom, it minimizes smaller to 100px
 	so it has to be 530px to minimize to 230px*/
 }

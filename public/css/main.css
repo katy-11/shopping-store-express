@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	color: #424242;
 }
-dl, ol, ul, li, img, label {
+dl, ol, ul, li, img, label, form {
     margin-top: 0;
     margin-bottom: 0;
     list-style: none;
