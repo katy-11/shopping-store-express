@@ -11,6 +11,7 @@ mongoose.connect(process.env.MONGO_URL);
 var adminRoute = require('./routes/admin.route')
 var topRoute = require('./routes/top.route');
 var searchRoute = require('./routes/search.route');
+var signRoute = require('./routes/sign.route');
 
 // var authMiddleware = require('./middleware/auth.middleware');
 // var sessionMiddleware = require('./middleware/session.middleware');
@@ -41,6 +42,7 @@ app.use('/admin', adminRoute);
 app.use('/api', apiTopRoute);
 app.use('/tops', topRoute);
 app.use('/search', searchRoute);
+app.use('/sign', signRoute);
 
 app.listen(port, function() {
 	console.log('Server listening at port 3000');

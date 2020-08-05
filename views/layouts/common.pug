@@ -41,7 +41,7 @@ head
       form(action="/search" method="GET")
         input.mr-3.search-btn(type='search', name='q', placeholder='Search')
       <i class="fas fa-minus"></i>
-      a(href="/sign-in" class="menu-bar-list") Sign in
+      .sign-in.sign-in-button Sign in
       <i class="fas fa-minus"></i>
       #minicart 
         i.fas.fa-shopping-bag#cart-icon
@@ -61,6 +61,79 @@ head
             //-   .cart-item-currency
             //-   .cart-price
 block content
+.signin-modal
+  .signin-container
+    .signin-left
+      h1.signin-title Welcome!
+      p.signin-desc Enjoy all your benefits.
+      form(action="/sign/in" method="POST")
+        div(class= "input-block")
+          label.input-label(for='signinEmail') Email
+          input#signinEmail(type='', name='email', placeholder='Email')
+        div(class= "input-block")
+          label.input-label(for='signinPassword') Password
+          input#signinPassword(type='password', name='password', placeholder='Password')
+        if errors 
+          .input-block= errors
+        .signin-buttons
+          a(href='') Forgot your password?
+          button.login-button Login
+      p.signup
+        | Don&apos;t have an account? 
+        a(href='/sign/up') Sign up now
+    .signin-right
+      img(src='/images/banner-phone.jpg')
+      button.icon-button.close-button
+        svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 50 50')
+          path(d='M 25 3 C 12.86158 3 3 12.86158 3 25 C 3 37.13842 12.86158 47 25 47 C 37.13842 47 47 37.13842 47 25 C 47 12.86158 37.13842 3 25 3 z M 25 5 C 36.05754 5 45 13.94246 45 25 C 45 36.05754 36.05754 45 25 45 C 13.94246 45 5 36.05754 5 25 C 5 13.94246 13.94246 5 25 5 z M 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.980469 15.990234 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 z')
+//- start common footer
+.seperate-line
+.container
+    .row
+        .col-sm-12.col-lg-2
+          div
+            label.font-7.label-bottom FRAIS
+            ul.menu-list-bottom.flex-column
+              a(href='#')
+                li.menu-item-bottom SHOP ALL
+              a(href='#')
+                li.menu-item-bottom FOR BODY
+              a(href='#')
+                li.menu-item-bottom FOR HOME
+              a(href='#')
+                li.menu-item-bottom ABOUT
+              a(href='#')
+                li.menu-item-bottom CONTACT
+        .col-sm-12.col-lg-3
+          label.font-7.label-bottom HELP
+          .menu-bar
+            ul.menu-list-bottom.flex-column
+              a(href='#')
+                li.menu-item-bottom SHOP ALL
+              a(href='#')
+                li.menu-item-bottom SHIPPING AND RETURN
+              a(href='#')
+                li.menu-item-bottom FOR HOME
+              a(href='#')
+                li.menu-item-bottom PAYMENT METHOD
+        .col-sm-12.col-lg-3
+          label.font-7.label-bottom CONTACT
+          .menu-bar
+            ul.menu-list-bottom.flex-column
+              a(href='#')
+                li.menu-item-bottom 123-456-7890
+              a(href='#')
+                li.menu-item-bottom INFO@MY-DOMAIN.COM
+              a(href='#')
+                li.menu-item-bottom FOR HOME
+        .col-sm-12.col-lg-4
+          label.font-7.label-bottom NEWS LETTER
+          .subscribe
+            label(for='email-address', style="color: #424242 ; font-family: 'Questrial', sans-serif;        font-size: 14px;") Enter Email *
+            input#email-address(type='text', placeholder='Email:')
+            a(href='#')
+              button.button-effect SUBSCRIBE
+
 script(src="/js/client1.js")
   //- if user
   //-   a(href="/profile", style={color:"black"}) Profile

@@ -140,3 +140,42 @@ function updatePrice() {
 
 }
 
+// sign in effect
+(function() {
+	const signinButton = document.querySelector(".sign-in-button");
+	const signinModal = document.querySelector(".signin-modal");
+	const modalContainer = document.querySelector(".modal-container");
+	const closeButton = document.querySelector(".close-button");
+
+	const openModal = () => {
+	  signinModal.style.display = "block";
+	};
+
+	const closeModal = () => {
+	  signinModal.style.display = "none";
+	};
+
+	document.addEventListener("click", (event) => {
+	  if (event.target == signinModal) {
+	  	signinModal.style.display = "none";
+	  }
+	});
+
+	signinButton.addEventListener("click", openModal);
+	closeButton.addEventListener("click", closeModal);
+}) ();
+
+// function authenication() {
+// 	const form = new FormData();
+// 	axios({
+// 	  method: 'post',
+// 	  url: '/sign/in',
+// 	  data: form
+// 	})
+// 	.then(function (response) {
+// 	    console.log(response.data, "huyen");
+// 	  })
+// 	.catch(function (error) {
+// 	    console.log(error, "client fail");
+// 	  });
+// }
