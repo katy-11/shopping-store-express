@@ -15,7 +15,7 @@ head
   title Kattie
 
 .container-fluid
-  .row.pre-header1 FREE SHIPPING ON ORDERS OVER $50
+  .row.pre-header1(onClick="authenication()") FREE SHIPPING ON ORDERS OVER $50
 // Navigation
 .container 
   .row
@@ -66,15 +66,16 @@ block content
     .signin-left
       h1.signin-title Welcome!
       p.signin-desc Enjoy all your benefits.
-      form(action="/sign/in" method="POST")
+      form(action="/sign/in" onSubmit=" return checkAuth1()" method="POST" )
         div(class= "input-block")
           label.input-label(for='signinEmail') Email
-          input#signinEmail(type='', name='email', placeholder='Email')
+          input#signinEmail(type='', name='signinEmail', placeholder='Email' required)
         div(class= "input-block")
           label.input-label(for='signinPassword') Password
-          input#signinPassword(type='password', name='password', placeholder='Password')
+          input#signinPassword(type='password', name='signinPassword', placeholder='Password' required)
+        #error-message
         if errors 
-          .input-block= errors
+          .input-block.input-block-wrong= errors
         .signin-buttons
           a(href='') Forgot your password?
           button.login-button Login
@@ -134,6 +135,8 @@ block content
             a(href='#')
               button.button-effect SUBSCRIBE
 
+script(src="https://unpkg.com/axios/dist/axios.min.js")
+script(src="/js/auth.client.js")
 script(src="/js/client1.js")
   //- if user
   //-   a(href="/profile", style={color:"black"}) Profile

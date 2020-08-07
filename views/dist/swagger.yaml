@@ -19,6 +19,7 @@ tags:
     description: top room
   - name: user
     description: user detail
+  - name: sign
 paths:
   /api/top:
     post:
@@ -43,7 +44,7 @@ paths:
       - top
       summary: "Find top by ID"
       description: "Returns a single top"
-      operationId: "gettopById"
+      operationId: "getTopById"
       produces:
       - "application/xml"
       - "application/json"
@@ -107,16 +108,45 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "top not found"
-  /api/top/edit:
-    post:
+  /api/user/{id}:
+    get:
+      tags:
+      - user
+      summary: "Find user by ID"
+      description: "Returns a single user"
+      operationId: "getUserById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of user to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/components/schemas/User"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "user not found"
+    put:
       tags:
         - user
-      summary: Create user
-      description: This can only be done by the logged in user.
-      operationId: createUser
-      responses:
-        default:
-          description: successful operation
+      summary: Update user detail with form data
+      description: This can only be done by the admin.
+      operationId: updateUser
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of user that needs to be updated"
+        required: true
+        type: "integer"
+        format: "int64"
       requestBody:
         content:
           application/json:
@@ -124,6 +154,30 @@ paths:
               $ref: '#/components/schemas/User'
         description: Created user object
         required: true
+      responses:
+        default:
+          description: successful operation
+    delete:
+      tags:
+      - user
+      summary: "Deletes a user"
+      description: ""
+      operationId: "deleteUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "user id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "user not found"
   /user/login:
     get:
       tags:
@@ -175,6 +229,23 @@ paths:
       responses:
         default:
           description: successful operation
+  /api/sign/in:
+    post:
+      tags:
+        - sign
+      summary: Check user authenication
+      description: This can only check user email and return true or false
+      operationId: signIn
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Created user object
+        required: true
 components:
   schemas:
     Clothes:
@@ -191,11 +262,19 @@ components:
     User:
       type: object
       properties:
+        email:
+          type: string
         name:
           type: string
-        image:
+        phone:
           type: string
-        huyen:
+        password:
+          type: string
+        address:
+          type: string
+        cart:
+          type: Array
+        image:
           type: string
       xml:
         name: User

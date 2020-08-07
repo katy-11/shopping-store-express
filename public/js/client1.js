@@ -165,17 +165,36 @@ function updatePrice() {
 	closeButton.addEventListener("click", closeModal);
 }) ();
 
-// function authenication() {
-// 	const form = new FormData();
-// 	axios({
-// 	  method: 'post',
-// 	  url: '/sign/in',
-// 	  data: form
-// 	})
-// 	.then(function (response) {
-// 	    console.log(response.data, "huyen");
-// 	  })
-// 	.catch(function (error) {
-// 	    console.log(error, "client fail");
-// 	  });
-// }
+
+function authenication() {
+	// const user = req.signedCookies.user_id;
+	axios({
+	  method: 'put',
+	  url: "/api/user/" + user_id,
+	  data: {"cart": JSON.parse(localStorage.getItem('data'))}
+	})
+	.then(function (response) {
+	    console.log(response.data, "huyen") ;
+	  })
+	.catch(function (error) {
+	    console.log(error, "client fail");
+	  });
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.match(/"(.*?)"/)[1];
+    }
+  }
+  return "";
+}
+
+const user_id = getCookie("user_id");

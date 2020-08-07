@@ -1,0 +1,28 @@
+extends ../layouts/common
+
+block content
+  .signup-page
+    .signin-container.signup-container
+      .signin-left
+        h1.signin-title Welcome!
+        p.signin-desc Enjoy all your benefits.
+        form(action="/sign/in" onSubmit=" return checkAuth1()" method="POST")
+          div(class= "input-block")
+            label.input-label(for='signinEmail') Email
+            input#signinEmail(type='', name='email', placeholder='Email')
+          div(class= "input-block")
+            label.input-label(for='signinPassword') Password
+            input#signinPassword(type='password', name='password', placeholder='Password')
+          #error-message
+          if errors 
+            .input-block.input-block-wrong= errors
+          .signin-buttons
+            a(href='') Forgot your password?
+            button.login-button Login
+        p.signup
+          | Don&apos;t have an account? 
+          a(href='/sign/up') Sign up now
+      .signin-right
+        img(src='/images/banner-phone.jpg')
+        
+              

@@ -1,10 +1,10 @@
 var Top = require('../../models/model.top');
 
-module.exports.index = (req, res) => {
+module.exports.topIndex = (req, res) => {
   res.render('dist/index');
 };
 
-module.exports.database = async (req, res) => {
+module.exports.topDatabase = async (req, res) => {
 	var tops = await Top.find();
 	res.json(tops);
 };

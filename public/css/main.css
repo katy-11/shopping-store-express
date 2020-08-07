@@ -195,6 +195,11 @@ html, body {
     border-radius: 4px;
     margin-bottom: 20px;
 }
+.input-block-wrong {
+    border: 1px solid #a72222;
+    color: #a72222;
+    font-style: italic;
+}
 .input-block input {
     outline: none;
     border: 0;
