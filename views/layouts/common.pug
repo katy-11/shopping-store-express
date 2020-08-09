@@ -12,6 +12,8 @@ head
   link(rel="stylesheet", href="/css/all.min.css")
   link(rel="stylesheet", href="/css/main.css")
   link(rel="stylesheet", href="/css/page.css")
+  link(rel="stylesheet", href="/css/singleItem.css")
+
   title Kattie
 
 .container-fluid
@@ -39,7 +41,7 @@ head
           li.menu-bar-item CONTACT US
     .profile-bar
       form(action="/search" method="GET")
-        input.mr-3.search-btn(type='search', name='q', placeholder='Search')
+        input.mr-3.search-btn(type='search', name='q', placeholder='Search' , value=values ? values.name : "")
       <i class="fas fa-minus"></i>
       .sign-in.sign-in-button Sign in
       <i class="fas fa-minus"></i>
@@ -69,10 +71,10 @@ block content
       form(action="/sign/in" onSubmit=" return checkAuth1()" method="POST" )
         div(class= "input-block")
           label.input-label(for='signinEmail') Email
-          input#signinEmail(type='', name='signinEmail', placeholder='Email' required)
+          input#signinEmail(type='', name='signinEmail', placeholder='Email', value=values ? values.name : "", required)
         div(class= "input-block")
           label.input-label(for='signinPassword') Password
-          input#signinPassword(type='password', name='signinPassword', placeholder='Password' required)
+          input#signinPassword(type='password', name='signinPassword', placeholder='Password', value=values ? values.name : "", required)
         #error-message
         if errors 
           .input-block.input-block-wrong= errors

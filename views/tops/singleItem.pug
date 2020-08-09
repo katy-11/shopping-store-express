@@ -1,0 +1,27 @@
+extends ../layouts/common
+
+block content
+	.container
+		.flex-page
+			.product-gallery
+				.item-showroom
+					.row
+						each first in firstFour
+							.col-lg-6.image-item
+								img(class="img-fluid", src= first)
+						each last in lastFour
+							.col-lg-3.image-item
+								img(class="img-fluid", src= last)
+			.product-detail
+				h1.pd-title= top.name
+				h2.pd-price= "AU$" + top.price + ".00"
+				.pd-desc
+					.pd-desc-title Product description:
+					.pd-desc-body= top.desc
+				.pd-colors
+					div Color: 
+						span Black
+					.custom-pd-color
+						.color-item.color-item-black
+						.color-item
+				.add-to-bag

@@ -4,13 +4,44 @@ block content
     .container
         h1 Create new tops
         form(action="/admin/create" method="POST" enctype="multipart/form-data")
-            input.mb-2(name="name", placeholder="Top name", value=values ? values.name : "")
+            input.mb-2(name="name", placeholder="Name", value=values ? values.name : "")
             br
-            input.mb-2(name="desc", placeholder="Top description", , value=values ? values.desc : "")
+            input.mb-2(name="desc", placeholder="Description", , value=values ? values.desc : "")
             br
-            input.mb-2(name="price", placeholder="Top price", , value=values ? values.desc : "")
+            input.mb-2(name="price", placeholder="Price", , value=values ? values.desc : "")
+            br
+            input.mb-2(name="color", placeholder="Color", value=values ? values.name : "")
+            br
+            input.mb-2(name="category", placeholder="Category", , value=values ? values.desc : "")
+            br
+            input.mb-2(name="sale", placeholder="True/False", , value=values ? values.desc : "")
+            br
+            input.mb-2(name="date", placeholder="DD/MM/YYYY", , value=values ? values.desc : "")
             br
             input(name="imageUrl", class="mb-2", type="file")
+            br
+            button(class="btn btn-primary") Create
+        h1 Upload single product images
+        form(action="/admin/create/uploadSinglePDImage" method="POST" enctype="multipart/form-data")
+            input.mb-2(name="id", placeholder="Product ID", , value=values ? values.desc : "")
+            br
+            input.mb-2(name="color", placeholder="Color", , value=values ? values.desc : "")
+            br
+            input(name="imageItem", class="mb-2", type="file")
+            br
+            input(name="imageItem", class="mb-2", type="file")
+            br
+            input(name="imageItem", class="mb-2", type="file")
+            br
+            input(name="imageItem", class="mb-2", type="file")
+            br
+            input(name="imageItem", class="mb-2", type="file")
+            br
+            input(name="imageItem", class="mb-2", type="file")
+            br
+            input(name="imageItem", class="mb-2", type="file")
+            br
+            input(name="imageItem", class="mb-2", type="file")
             br
             button(class="btn btn-primary") Create
         h1  All tops

@@ -16,13 +16,8 @@ module.exports.userUpdate = async (req, res) => {
 	var user = await User.findByIdAndUpdate(
 		req.params.id, 
 		req.body, 
-		(err, result) => {res.json(user);} );
+		(err, result) => res.json(user) );
 };
-
-// module.exports.userUpdate = async (req, res) => {
-// 	var user = await User.update({_id: req.params.id}, {$set: req.body}).exec();
-// 	res.json(user);
-// };
 
 module.exports.userDelete = async (req, res) => {
 	var user = await User.findByIdAndRemove(req.params.id, (err, result) => {
@@ -38,7 +33,6 @@ module.exports.userSigninCheck = async (req, res) => {
 			email: req.body.signinEmail 
 		}
 	).exec((err, user) => {
-		console.log(user, "first step");
 		if (!user) {
 			res.send(false);
 			return;
@@ -46,7 +40,7 @@ module.exports.userSigninCheck = async (req, res) => {
 			bcrypt.compare(req.body.signinPassword, user.password, function(err, result) {
 			    // result = false
 			    if (result === false) {
-			    	console.log(user, 2)
+			    	console.log(user, 2);
 					res.send(false);
 			    } else {
 					console.log(user, 3);

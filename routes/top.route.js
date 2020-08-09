@@ -4,6 +4,8 @@ var controller = require('../controllers/top.controller');
 
 var Router = express.Router('');
 
-Router.get('/', controller.index) ;
+Router.get('/', controller.index);
 
-module.exports = Router;
+Router.get('/:id', controller.view);
+
+module.exports = Router

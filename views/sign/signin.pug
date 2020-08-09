@@ -9,10 +9,10 @@ block content
         form(action="/sign/in" onSubmit=" return checkAuth1()" method="POST")
           div(class= "input-block")
             label.input-label(for='signinEmail') Email
-            input#signinEmail(type='', name='email', placeholder='Email')
+            input#signinEmail(type='', name='signinEmail', placeholder='Email', value=values ? values.name : "")
           div(class= "input-block")
             label.input-label(for='signinPassword') Password
-            input#signinPassword(type='password', name='password', placeholder='Password')
+            input#signinPassword(type='password', name='signinPassword', placeholder='Password', value=values ? values.name : "")
           #error-message
           if errors 
             .input-block.input-block-wrong= errors

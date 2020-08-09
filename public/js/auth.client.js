@@ -12,7 +12,7 @@ async function checkAuth1() {
 	    return false;
 	}
 
-	if (password.length >15) {
+	if (password.length >20) {
 	    text = "Wrong password";
 	    error_message.innerHTML = text;
 	    error_message.classList.add("input-block", "input-block-wrong");
@@ -64,7 +64,7 @@ function checkAuth2() {
 	}
 
 	if(isNaN(phone) || phone.length != 10){
-	    text = "Please Enter valid Phone Number";
+	    text = "Please Enter valid phone number";
 	    error_message.innerHTML = text;
 	    return false;
 	  }

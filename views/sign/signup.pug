@@ -9,16 +9,16 @@ block content
               form(action="/sign/up" onSubmit=" return checkAuth2()" method="POST")
                 div(class= "input-block")
                   label.input-label(for='signupEmail') Email
-                  input#signupEmail(type='', name='email', placeholder='Email')
+                  input#signupEmail(type='', name='signupEmail', placeholder='Email')
                 div(class= "input-block")
                   label.input-label(for='signupPassword') Password
-                  input#signupPassword(type='password', name='password', placeholder='Password')
+                  input#signupPassword(type='password', name='signupPassword', placeholder='Password')
                 div(class= "input-block")
                   label.input-label(for='signupName') Full name
-                  input#signupName(type='name', name='name', placeholder='Your full name')
+                  input#signupName(type='name', name='signupName', placeholder='Your full name')
                 div(class= "input-block")
                   label.input-label(for='signupPhone') Phone number
-                  input#signupPhone(type='phone', name='phone', placeholder='Your phone number')
+                  input#signupPhone(type='phone', name='signupPhone', placeholder='Your phone number')
                 #error-message
                 .signin-buttons
                   a(href='')

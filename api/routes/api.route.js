@@ -2,6 +2,7 @@ var express = require('express');
 
 var topController = require('../controllers/top.controller');
 var userController = require('../controllers/user.controller');
+var refinementController = require('../controllers/refinement.controller');
 
 
 var Route = express.Router('');
@@ -36,3 +37,7 @@ module.exports = Route;
 // sign (user.controller.js)
 
 Route.post('/sign/in', userController.userSigninCheck);
+
+//refinement
+
+Route.post('/refinement', refinementController.postFilterRefinement);

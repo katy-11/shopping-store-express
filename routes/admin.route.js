@@ -11,4 +11,8 @@ Router.get('/create', controller.create);
 
 Router.post('/create', upload.single('imageUrl'), controller.postCreate);
 
+Router.post('/create/uploadSinglePDImage', 
+	upload.array('imageItem'), 
+	controller.postUploadSinglePDImage);
+
 module.exports = Router;

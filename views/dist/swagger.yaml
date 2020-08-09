@@ -246,6 +246,23 @@ paths:
               $ref: '#/components/schemas/User'
         description: Created user object
         required: true
+  /api/refinement:
+    post:
+      tags:
+        - refinement
+      summary: Filter product by selected refinement 
+      description: Enter your selection
+      operationId: Refinment
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Refinement'
+        description: 
+        required: true
 components:
   schemas:
     Clothes:
@@ -256,6 +273,20 @@ components:
         desc:
           type: string
         price:
+          type: string
+        imageUrl:
+          type: string
+        color:
+          type: string
+        category:
+          type: string
+        refinement:
+          type: string
+        sale:
+          type: Boolean
+        imageItem:
+          type: Array
+        date:
           type: string
       xml:
         name: User
@@ -276,6 +307,13 @@ components:
           type: Array
         image:
           type: string
+    Refinement:
+      type: object
+      properties:
+        price:
+          type: Array
+        color:
+          type: String
       xml:
         name: User
   requestBodies:

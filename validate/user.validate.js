@@ -1,37 +1,44 @@
-module.exports.postCreate = (req, res, next) => {
+module.exports.postSignin = (req, res, next) => {
+  const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
   var errors = [];
-  if (!req.body.name) {
-    errors.push('Name is required');
+  if (!emailRegex.test(req.body.signinEmail)) {
+      error.push("Please enter valid email");
   }
-  if (req.body.name.length > 30) {
-    errors.push('Name is less than 30 characters')
+  if (req.body.signinPassword.length > 20) {
+    errors.push('Password is less than 20 characters');
   }
-  if (!req.body.age) {
-    errors.push('Age is required');
-  }
+  
   if (errors.length) {
-    res.render('users/create', {
+    res.render('sign/signin', {
       errors: errors,
       values: req.body
     });
     return;
   }
-  res.locals.success = true;
   next();
 };
 
-module.exports.postViewUpdate = (req, res, next) => {
+module.exports.postSignup = (req, res, next) => {
+  const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
   var errors = [];
-  // if (!req.body.name) {
-  //   errors.push('New name is required');
-  // }
+  if (!emailRegex.test(req.body.signupEmail)) {
+      error.push("Please enter valid email");
+  }
+  if (req.body.signupPassword.length < 6) {
+    errors.push('Password must be longer than 6 character');
+  }
+  if (req.body.signupName == null || req.body.signupName=="") {
+    errors.push('Password is less than 20 characters');
+  }
+  if (isNaN(req.body.signupPhone) || req.body.signupPhone.length != 10) {
+    errors.push('Please enter valid phone number')
+  }
   if (errors.length) {
-    res.render('users/update', {
-      id: req.params.id,
-      errors: errors
+    res.render('sign/signup', {
+      errors: errors,
+      values: req.body
     });
     return;
   }
-  res.locals.success = true;
   next();
 };
