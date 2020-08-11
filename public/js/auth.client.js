@@ -1,42 +1,39 @@
-function checkAuth1(event) {
-  // if  (errors === true) {
-    // event.preventDefault();
-  // }
+async function checkAuth1(event) {
+  event.preventDefault();
+ 
   email = document.getElementById("signinEmail").value;
   password = document.getElementById("signinPassword").value;
   error_message = document.getElementById("error-message");
-
-  var errors = false;
   const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
 
   if (!emailRegex.test(email)) {
     text = "Please enter  email";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
-    return false;
-    // errors = true;
   }
 
   if (password.length > 20) {
     text = "Wrong password";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
-    // errors = true;
-
-    return false;
   }
- return true;
-  // try {
-  //   const response = await axios.post('/api/sign/in', {
-  //     signinEmail: email, signinPassword: password 
-  //   });
-  //   console.log(response.data);
-  //   return false;
-  // } catch (error) {
-  //   console.error(error);
-  //   return false;
-  // }
-  // return true;
+  try {
+    const response = await axios.post('/api/sign/in', {
+      signinEmail: email, signinPassword: password 
+    });
+    if (!response.data) {//response.data === false (login fail)
+      text = "Wrong email or password";
+      error_message.innerHTML = text;
+      error_message.classList.add("input-block", "input-block-wrong");
+    } else {
+      //login successfully
+      console.log("response", response)
+      window.location = '/';
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  
 }
 
 function checkAuth2() {
