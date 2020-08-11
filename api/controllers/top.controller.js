@@ -1,12 +1,12 @@
-var Top = require('../../models/model.top');
+var Top = require("../../models/model.top");
 
 module.exports.topIndex = (req, res) => {
-  res.render('dist/index');
+  res.render("dist/index");
 };
 
 module.exports.topDatabase = async (req, res) => {
-	var tops = await Top.find();
-	res.json(tops);
+  var tops = await Top.find();
+  res.json(tops);
 };
 
 module.exports.topCreate = async (req, res) => {
@@ -15,21 +15,25 @@ module.exports.topCreate = async (req, res) => {
 };
 
 module.exports.topViewSingle = async (req, res) => {
-	var top = await Top.find({_id: req.params.id});
-	res.json(top);
-}
+  var top = await Top.find({ _id: req.params.id });
+  res.json(top);
+};
 
 module.exports.topUpdate = async (req, res) => {
-	var top = await Top.findByIdAndUpdate(req.params.id, req.body, (err, result) => {
-	res.json(top);
-	});
+  var top = await Top.update(
+    {_id: req.params.id},
+    req.body,
+    (err, result) => {
+      res.json(top);
+    }
+  );
 };
 
 module.exports.topDelete = async (req, res) => {
-	var top = await Top.findByIdAndRemove(req.params.id, (err, result) => {
-		if (err) {
-			res.send('remove not successfully');
-		}
-		res.send('remove successfully');
-		});
+  var top = await Top.findByIdAndRemove(req.params.id, (err, result) => {
+    if (err) {
+      res.send("remove not successfully");
+    }
+    res.send("remove successfully");
+  });
 };

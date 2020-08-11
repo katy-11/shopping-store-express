@@ -6,7 +6,7 @@ block content
 			.refinement-bar
 				.refinement-card
 					.refinement-heading
-						span.refinement-header Tops
+						span.refinement-header Bags
 						span.refinement-clear
 							span.refinement-clear-text Clear
 							i(class="fas fa-times refinement-clear-icon")
@@ -14,21 +14,17 @@ block content
 					.refinement-scroll-body
 						.refinement-item
 							.custom-checkbox
-								input#refinement-tees(type="checkbox")
-								label(for="refinement-tees" class="refinement-sub")
-									span Tees
+								input#refinement-crossbody(type="checkbox" data-ref="typeGroup" data-refType="Crossbody")
+								label(for="refinement-crossbody" class="refinement-sub")
+									span Crossbodys
 							.custom-checkbox
-								input#refinement-sweater(type="checkbox")
-								label(for="refinement-sweater" class="refinement-sub")
-									span Sweater
+								input#refinement-handbag(type="checkbox" data-ref="typeGroup" data-refType="Handbag")
+								label(for="refinement-handbag" class="refinement-sub")
+									span Handbags
 							.custom-checkbox
-								input#refinement-jacket(type="checkbox")
-								label(for="refinement-jacket" class="refinement-sub")
-									span Jacket
-							.custom-checkbox
-								input#refinement-blazer(type="checkbox")
-								label(for="refinement-blazer" class="refinement-sub")
-									span Blazer
+								input#refinement-backpack(type="checkbox" data-ref="typeGroup" data-refType="Backpack")
+								label(for="refinement-backpack" class="refinement-sub")
+									span Backpacks
 				.refinement-card
 					.refinement-heading
 						span.refinement-header Color
@@ -39,19 +35,19 @@ block content
 					.refinement-scroll-body
 						.refinement-item
 							.custom-checkbox
-								input#refinement-black(type="checkbox")
+								input#refinement-black(type="checkbox" data-ref="colorGroup" data-refColor="Black")
 								label(for="refinement-black" class="refinement-sub")
 									span Black
 							.custom-checkbox
-								input#refinement-white(type="checkbox")
+								input#refinement-white(type="checkbox" data-ref="colorGroup" data-refColor="White")
 								label(for="refinement-white" class="refinement-sub")
 									span White
 							.custom-checkbox
-								input#refinement-orange(type="checkbox")
+								input#refinement-orange(type="checkbox" data-ref="colorGroup" data-refColor="Orange")
 								label(for="refinement-orange" class="refinement-sub")
 									span Orange
 							.custom-checkbox
-								input#refinement-pink(type="checkbox")
+								input#refinement-pink(type="checkbox" data-ref="colorGroup" data-refColor="Pink")
 								label(for="refinement-pink" class="refinement-sub")
 									span Pink	
 				.refinement-card

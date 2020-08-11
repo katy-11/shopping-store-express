@@ -1,43 +1,40 @@
-var express = require('express');
+var express = require("express");
 
-var topController = require('../controllers/top.controller');
-var userController = require('../controllers/user.controller');
-var refinementController = require('../controllers/refinement.controller');
+var topController = require("../controllers/top.controller");
+var userController = require("../controllers/user.controller");
+var refinementController = require("../controllers/refinement.controller");
 
-
-var Route = express.Router('');
+var Route = express.Router("");
 
 // top api
-Route.get('/top', topController.topIndex);
+Route.get("/top", topController.topIndex);
 
-Route.get('/top/database', topController.topDatabase);
+Route.get("/top/database", topController.topDatabase);
 
+Route.post("/top", topController.topCreate);
 
-Route.post('/top', topController.topCreate);
+Route.get("/top/:id", topController.topViewSingle);
 
+Route.put("/top/:id", topController.topUpdate);
 
-Route.get('/top/:id', topController.topViewSingle);
-
-Route.put('/top/:id', topController.topUpdate);
-
-Route.delete('/top/:id', topController.topDelete);
+Route.delete("/top/:id", topController.topDelete);
 
 // user api
 
-Route.get('/user', userController.usersIndex);
+Route.get("/user", userController.usersIndex);
 
-Route.get('/user/:id', userController.userSingleDetail);
+Route.get("/user/:id", userController.userSingleDetail);
 
-Route.put('/user/:id', userController.userUpdate);
+Route.put("/user/:id", userController.userUpdate);
 
-Route.delete('/user/:id', userController.userDelete);
+Route.delete("/user/:id", userController.userDelete);
 
 module.exports = Route;
 
 // sign (user.controller.js)
 
-Route.post('/sign/in', userController.userSigninCheck);
+Route.post("/sign/in", userController.userSigninCheck);
 
 //refinement
 
-Route.post('/refinement', refinementController.postFilterRefinement);
+Route.post("/refinement", refinementController.postFilterRefinement);

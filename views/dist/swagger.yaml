@@ -7,12 +7,12 @@ info:
   description: Test APIs document Swagger
   version: "1.0.0"
   title: Thu vien sach APIs document Swagger
-  termsOfService: 'http://swagger.io/terms/'
+  termsOfService: "http://swagger.io/terms/"
   contact:
     email: apiteam@swagger.io
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 basePath: "/v2"
 tags:
   - name: top
@@ -35,26 +35,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Clothes'
+              $ref: "#/components/schemas/Clothes"
         description: Created user object
         required: true
   /api/top/{id}:
     get:
       tags:
-      - top
+        - top
       summary: "Find top by ID"
       description: "Returns a single top"
       operationId: "getTopById"
       produces:
-      - "application/xml"
-      - "application/json"
+        - "application/xml"
+        - "application/json"
       parameters:
-      - name: "id"
-        in: "path"
-        description: "ID of top to return"
-        required: true
-        type: "integer"
-        format: "int64"
+        - name: "id"
+          in: "path"
+          description: "ID of top to return"
+          required: true
+          type: "integer"
+          format: "int64"
       responses:
         "200":
           description: "successful operation"
@@ -71,17 +71,17 @@ paths:
       description: This can only be done by the admin.
       operationId: updateTop
       parameters:
-      - name: "id"
-        in: "path"
-        description: "ID of top that needs to be updated"
-        required: true
-        type: "integer"
-        format: "int64"
+        - name: "id"
+          in: "path"
+          description: "ID of top that needs to be updated"
+          required: true
+          type: "integer"
+          format: "int64"
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Clothes'
+              $ref: "#/components/schemas/Clothes"
         description: Created user object
         required: true
       responses:
@@ -89,20 +89,20 @@ paths:
           description: successful operation
     delete:
       tags:
-      - top
+        - top
       summary: "Deletes a top"
       description: ""
       operationId: "deleteTop"
       produces:
-      - "application/xml"
-      - "application/json"
+        - "application/xml"
+        - "application/json"
       parameters:
-      - name: "id"
-        in: "path"
-        description: "top id to delete"
-        required: true
-        type: "integer"
-        format: "int64"
+        - name: "id"
+          in: "path"
+          description: "top id to delete"
+          required: true
+          type: "integer"
+          format: "int64"
       responses:
         "400":
           description: "Invalid ID supplied"
@@ -111,20 +111,20 @@ paths:
   /api/user/{id}:
     get:
       tags:
-      - user
+        - user
       summary: "Find user by ID"
       description: "Returns a single user"
       operationId: "getUserById"
       produces:
-      - "application/xml"
-      - "application/json"
+        - "application/xml"
+        - "application/json"
       parameters:
-      - name: "id"
-        in: "path"
-        description: "ID of user to return"
-        required: true
-        type: "integer"
-        format: "int64"
+        - name: "id"
+          in: "path"
+          description: "ID of user to return"
+          required: true
+          type: "integer"
+          format: "int64"
       responses:
         "200":
           description: "successful operation"
@@ -141,17 +141,17 @@ paths:
       description: This can only be done by the admin.
       operationId: updateUser
       parameters:
-      - name: "id"
-        in: "path"
-        description: "ID of user that needs to be updated"
-        required: true
-        type: "integer"
-        format: "int64"
+        - name: "id"
+          in: "path"
+          description: "ID of user that needs to be updated"
+          required: true
+          type: "integer"
+          format: "int64"
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
         description: Created user object
         required: true
       responses:
@@ -159,20 +159,20 @@ paths:
           description: successful operation
     delete:
       tags:
-      - user
+        - user
       summary: "Deletes a user"
       description: ""
       operationId: "deleteUser"
       produces:
-      - "application/xml"
-      - "application/json"
+        - "application/xml"
+        - "application/json"
       parameters:
-      - name: "id"
-        in: "path"
-        description: "user id to delete"
-        required: true
-        type: "integer"
-        format: "int64"
+        - name: "id"
+          in: "path"
+          description: "user id to delete"
+          required: true
+          type: "integer"
+          format: "int64"
       responses:
         "400":
           description: "Invalid ID supplied"
@@ -198,7 +198,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: successful operation
           headers:
             X-Rate-Limit:
@@ -218,7 +218,7 @@ paths:
             application/xml:
               schema:
                 type: string
-        '400':
+        "400":
           description: Invalid username/password supplied
   /user/logout:
     get:
@@ -243,16 +243,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
         description: Created user object
         required: true
   /api/refinement:
     post:
       tags:
         - refinement
-      summary: Filter product by selected refinement 
+      summary: Filter product by selected refinement
       description: Enter your selection
-      operationId: Refinment
+      operationId: Refinement
       responses:
         default:
           description: successful operation
@@ -260,8 +260,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Refinement'
-        description: 
+              $ref: "#/components/schemas/Refinement"
+        description:
         required: true
 components:
   schemas:
@@ -278,14 +278,21 @@ components:
           type: string
         color:
           type: string
+        colorPicker:
+          type: array
+          items:
+            type: string
         category:
           type: string
-        refinement:
+        type:
           type: string
         sale:
-          type: Boolean
+          type: boolean
+          default: false
         imageItem:
-          type: Array
+          type: array
+          items:
+            type: string
         date:
           type: string
       xml:
@@ -304,16 +311,22 @@ components:
         address:
           type: string
         cart:
-          type: Array
+          type: array
+          items:
+            type: string
         image:
           type: string
     Refinement:
       type: object
       properties:
+        type:
+          type: string
         price:
-          type: Array
+          type: array
+          items:
+            type: string
         color:
-          type: String
+          type: string
       xml:
         name: User
   requestBodies:
@@ -323,7 +336,7 @@ components:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
       description: List of user object
       required: true
   securitySchemes:
@@ -331,10 +344,10 @@ components:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: 'http://test-swagger.herokuapp.com'
+          authorizationUrl: "http://test-swagger.herokuapp.com"
           scopes:
-            'write:users': modify your account
-            'read:users': read your information
+            "write:users": modify your account
+            "read:users": read your information
     api_key:
       type: apiKey
       name: api_key

@@ -1,11 +1,11 @@
-var express = require('express');
+var express = require("express");
 
-var controller = require('../controllers/top.controller');
+var controller = require("../controllers/top.controller");
 
-var Router = express.Router('');
+var Router = express.Router("");
 
-Router.get('/', controller.index);
+Router.get("/", controller.index);
 
-Router.get('/:id', controller.view);
+Router.get("/:id", controller.view);
 
-module.exports = Router
+module.exports = Router;

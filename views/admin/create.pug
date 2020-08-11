@@ -8,15 +8,19 @@ block content
             br
             input.mb-2(name="desc", placeholder="Description", , value=values ? values.desc : "")
             br
-            input.mb-2(name="price", placeholder="Price", , value=values ? values.desc : "")
+            input.mb-2(name="price", placeholder="Price", , value=values ? values.price : "")
             br
-            input.mb-2(name="color", placeholder="Color", value=values ? values.name : "")
+            input.mb-2(name="color", placeholder="Color", value=values ? values.color : "")
             br
-            input.mb-2(name="category", placeholder="Category", , value=values ? values.desc : "")
+            input.mb-2(name="category", placeholder="Category", , value=values ? values.category : "")
             br
-            input.mb-2(name="sale", placeholder="True/False", , value=values ? values.desc : "")
+            input.mb-2(name="type", placeholder="Type", , value=values ? values.type : "")
+            br 
+            input.mb-2(name="colorPicker", placeholder="[Array of colors]", , value=values ? values.colorPicker : "")
             br
-            input.mb-2(name="date", placeholder="DD/MM/YYYY", , value=values ? values.desc : "")
+            input.mb-2(name="sale", placeholder="true/false", , value=values ? values.sale : "")
+            br
+            input.mb-2(name="date", placeholder="DD/MM/YYYY", , value=values ? values.date : "")
             br
             input(name="imageUrl", class="mb-2", type="file")
             br

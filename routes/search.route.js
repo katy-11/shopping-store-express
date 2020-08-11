@@ -1,9 +1,9 @@
-var express = require('express');
+var express = require("express");
 
-var controller = require('../controllers/search.controller');
+var controller = require("../controllers/search.controller");
 
-var Router = express.Router('');
+var Router = express.Router("");
 
-Router.get('/', controller.search);
+Router.get("/", controller.search);
 
 module.exports = Router;
