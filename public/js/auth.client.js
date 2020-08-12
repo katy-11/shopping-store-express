@@ -7,22 +7,24 @@ async function checkAuth1(event) {
   const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
 
   if (!emailRegex.test(email)) {
-    text = "Please enter  email";
+    text = "Please enter your email";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
+    return;
   }
 
   if (password.length > 20) {
-    text = "Wrong password";
+    text = "Password must be shorter than 20 character";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
+    return;
   }
   try {
     const response = await axios.post('/api/sign/in', {
       signinEmail: email, signinPassword: password 
     });
     if (!response.data) {//response.data === false (login fail)
-      text = "Wrong email or password";
+      text = "Either email or password is wrong";
       error_message.innerHTML = text;
       error_message.classList.add("input-block", "input-block-wrong");
     } else {
@@ -37,10 +39,11 @@ async function checkAuth1(event) {
 }
 
 function checkAuth2() {
-  email = document.getElementById("signupEmail").value;
-  password = document.getElementById("signupPassword").value;
-  name = document.getElementById("signupName").value;
-  phone = document.getElementById("signupPhone").value;
+
+  email = document.getElementById("email").value;
+  password = document.getElementById("password").value;
+  name = document.getElementById("name").value;
+  phone = document.getElementById("phone").value;
   error_message = document.getElementById("error-message");
 
   const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
@@ -67,7 +70,7 @@ function checkAuth2() {
   if (isNaN(phone) || phone.length != 10) {
     text = "Please Enter valid phone number";
     error_message.innerHTML = text;
-    return false;
+    return;
   }
   return true;
 }

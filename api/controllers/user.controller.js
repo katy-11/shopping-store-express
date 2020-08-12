@@ -44,7 +44,7 @@ module.exports.userSigninCheck = async (req, res) => {
         // result = false
         if (result === false) {
           console.log(user, 2);
-          res.send("false 2");
+          res.send(false);
         } else {
           console.log(user, 3);
           res.send(true);

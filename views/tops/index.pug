@@ -60,20 +60,20 @@ block content
 					.refinement-scroll-body
 						.refinement-item
 							.custom-checkbox
-								input#refinement-price1(type="checkbox")
+								input#refinement-price1(type="radio" name="price" data-ref="priceGroup" data-refPrice1="20" data-refPrice2="50")
 								label(for="refinement-price1" class="refinement-sub")
-									span "$20 to $50"
+									span "AU$20 to AU$50"
 							.custom-checkbox
-								input#refinement-price2(type="checkbox")
+								input#refinement-price2(type="radio" name="price" data-ref="priceGroup" data-refPrice1="50" data-refPrice2="99")
 								label(for="refinement-price2" class="refinement-sub")
-									span "$50 to $99"
+									span "AU$50 to AU$99"
 							.custom-checkbox
-								input#refinement-price3(type="checkbox")
+								input#refinement-price3(type="radio" name="price" data-ref="priceGroup" data-refPrice1="100" data-refPrice2="200")
 								label(for="refinement-price3" class="refinement-sub")
-									span "$100 and above"
+									span "AU$100 and above"
 			.product-showroom
 				.product-wrapper
-					.row
+					#row.row
 						each top in tops
 							.product-item.col-4(data-page-number="0" data-product-details={"id": top._id, "name": top.name, "price": top.price, "imageUrl": top.imageUrl})
 								.product-carousel
