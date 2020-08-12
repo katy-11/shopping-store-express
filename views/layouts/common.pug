@@ -68,7 +68,7 @@ block content
     .signin-left
       h1.signin-title Welcome!
       p.signin-desc Enjoy all your benefits.
-      form(action="/sign/in" onSubmit="return checkAuth1()" method="POST" )
+      form(action="/sign/in" onSubmit="checkAuth1(event)" method="POST" )
         div(class= "input-block")
           label.input-label(for='signinEmail') Email
           input#signinEmail(type='', name='signinEmail', placeholder='Email', value=values ? values.name : "", required)
