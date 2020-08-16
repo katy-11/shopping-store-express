@@ -42,9 +42,6 @@ head
     .profile-bar
       form(action="/search" method="GET")
         input.mr-3.search-btn(type='search', name='q', placeholder='Search' , value=values ? values.name : "")
-      <i class="fas fa-minus"></i>
-      .sign-in.sign-in-button Sign in
-      <i class="fas fa-minus"></i>
       #minicart 
         i.fas.fa-shopping-bag#cart-icon
           span.cartCount 
@@ -62,13 +59,30 @@ head
             //-     .cart-item-
             //-   .cart-item-currency
             //-   .cart-price
+      <i class="fas fa-minus"></i>
+      if user
+        #user-account.user-account
+          #user-avatar.user-avatar
+            img(src="/images/banner.jpg")
+          #user-option.user-option
+            ul(class="user-option-wrapper")
+              a(href="")
+                li My details
+              a(href="")
+                li My cart
+              a(href="")
+                li My order
+              a(href="/sign/out" id="sign-out")
+                li Log out
+      else
+        .sign-in.sign-in-button Sign in
 block content
 .signin-modal
   .signin-container
     .signin-left
       h1.signin-title Welcome!
       p.signin-desc Enjoy all your benefits.
-      form(action="/sign/in" onSubmit="checkAuth1(event)" method="POST" )
+      form(action="/sign/in" onSubmit="checkAuth1(event)" method="POST" id="sign-in-form")
         div(class= "input-block")
           label.input-label(for='signinEmail') Email
           input#signinEmail(type='', name='signinEmail', placeholder='Email', value=values ? values.name : "", required)
@@ -126,7 +140,7 @@ block content
               a(href='#')
                 li.menu-item-bottom 123-456-7890
               a(href='#')
-                li.menu-item-bottom INFO@MY-DOMAIN.COM
+                li.menu-item-bottom HOHUYEN1114@GMAIL.COM
               a(href='#')
                 li.menu-item-bottom FOR HOME
         .col-sm-12.col-lg-4
@@ -138,8 +152,10 @@ block content
               button.button-effect SUBSCRIBE
 
 script(src="https://unpkg.com/axios/dist/axios.min.js")
-script(src="/js/auth.client.js")
 script(src="/js/client1.js")
+script(src="/js/auth.client.js")
+script(src="/js/refinement.js")
+script(src="/js/sign.js")
   //- if user
   //-   a(href="/profile", style={color:"black"}) Profile
   //-   span &nbsp

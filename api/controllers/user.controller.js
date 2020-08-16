@@ -20,6 +20,10 @@ module.exports.userUpdate = async (req, res) => {
   );
 };
 
+module.exports.cartUpdate = async (req, res) => {
+ 
+}
+
 module.exports.userDelete = async (req, res) => {
   var user = await User.findByIdAndRemove(req.params.id, (err, result) => {
     if (err) {

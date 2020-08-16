@@ -10,14 +10,14 @@ async function checkAuth1(event) {
     text = "Please enter your email";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
-    return;
+    return false;
   }
 
   if (password.length > 20) {
     text = "Password must be shorter than 20 character";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
-    return;
+    return false;
   }
   try {
     const response = await axios.post('/api/sign/in', {
@@ -29,8 +29,8 @@ async function checkAuth1(event) {
       error_message.classList.add("input-block", "input-block-wrong");
     } else {
       //login successfully
-      console.log("response", response)
-      window.location = '/';
+      console.log("response", response);
+      document.getElementById('sign-in-form').submit();
     }
   } catch (error) {
     console.error(error);

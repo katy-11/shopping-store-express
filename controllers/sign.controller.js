@@ -7,10 +7,6 @@ module.exports.signup = (req, res) => {
   res.render("sign/signup");
 };
 
-module.exports.signin = (req, res) => {
-  res.render("sign/signin");
-};
-
 module.exports.postSignup = async (req, res) => {
   bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
     // Store hash in your password DB.
@@ -20,11 +16,14 @@ module.exports.postSignup = async (req, res) => {
   res.redirect("/");
 };
 
+module.exports.signin = (req, res) => {
+  res.render("sign/signin");
+};
+
 module.exports.postSignin = (req, res) => {
   User.findOne({
     email: req.body.signinEmail,
   }).exec((err, user) => {
-    console.log(user, "first step");
     if (!user) {
       res.render("sign/signin", {
         errors: "Either email or password is wrong",
@@ -43,17 +42,20 @@ module.exports.postSignin = (req, res) => {
           });
         } else {
           console.log(user, 3);
-          // update localStorage to db
-          // User.update({
-          // 	_id: user._id
-          // }, { $set: {address: "2 thyra" }}).exec();
-
           res.cookie("user_id", user._id, {
-            signed: true,
+            signed: true
           });
-          res.redirect("/");
+          res.redirect("/"); 
         }
       });
     }
   });
 };
+
+module.exports.signout = (req, res) => {
+  res.clearCookie("user_id", {
+    signed: true
+  })
+  res.redirect("/");
+};
+

@@ -27,6 +27,8 @@ Route.get("/user/:id", userController.userSingleDetail);
 
 Route.put("/user/:id", userController.userUpdate);
 
+Route.put("/user/cart/:id", userController.cartUpdate);
+
 Route.delete("/user/:id", userController.userDelete);
 
 module.exports = Route;

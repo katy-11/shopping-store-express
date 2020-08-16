@@ -7,10 +7,12 @@ var Router = express.Router("");
 
 Router.get("/up", controller.signup);
 
-Router.get("/in", controller.signin);
-
 Router.post("/up", controller.postSignup);
 
+Router.get("/in", controller.signin);
+
 Router.post("/in", validate.postSignin, controller.postSignin);
+
+Router.get("/out", controller.signout);
 
 module.exports = Router;

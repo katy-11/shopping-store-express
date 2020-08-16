@@ -15,7 +15,7 @@ var topRoute = require("./routes/top.route");
 var searchRoute = require("./routes/search.route");
 var signRoute = require("./routes/sign.route");
 
-// var authMiddleware = require('./middleware/auth.middleware');
+var authMiddleware = require('./middleware/auth.middleware');
 // var sessionMiddleware = require('./middleware/session.middleware');
 
 // var cartItem = require('./controllers/cart.controller.js');
@@ -33,7 +33,7 @@ var apiRoute = require("./api/routes/api.route");
 app.use(cookieParser("process.env.SESSION_SECRET"));
 // app.use(sessionMiddleware);
 
-app.get("/", (req, res) => {
+app.get("/", authMiddleware.checkUser, (req, res) => {
   res.render("index");
 });
 
@@ -42,9 +42,10 @@ app.use(express.static("views/dist"));
 
 app.use("/admin", adminRoute);
 app.use("/api", apiRoute);
-app.use("/tops", topRoute);
-app.use("/search", searchRoute);
-app.use("/sign", signRoute);
+app.use("/tops", authMiddleware.checkUser, topRoute);
+app.use("/search", authMiddleware.checkUser, searchRoute);
+app.use("/sign", authMiddleware.checkUser, signRoute);
+app.use("/user", authMiddleware.requireAuth)
 
 app.listen(port, function () {
   console.log("Server listening at port 3000");
