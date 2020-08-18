@@ -14,6 +14,7 @@ var adminRoute = require("./routes/admin.route");
 var topRoute = require("./routes/top.route");
 var searchRoute = require("./routes/search.route");
 var signRoute = require("./routes/sign.route");
+var userRoute = require("./routes/user.route");
 
 var authMiddleware = require('./middleware/auth.middleware');
 // var sessionMiddleware = require('./middleware/session.middleware');
@@ -45,7 +46,7 @@ app.use("/api", apiRoute);
 app.use("/tops", authMiddleware.checkUser, topRoute);
 app.use("/search", authMiddleware.checkUser, searchRoute);
 app.use("/sign", authMiddleware.checkUser, signRoute);
-app.use("/user", authMiddleware.requireAuth)
+app.use("/user", authMiddleware.requireAuth, userRoute)
 
 app.listen(port, function () {
   console.log("Server listening at port 3000");

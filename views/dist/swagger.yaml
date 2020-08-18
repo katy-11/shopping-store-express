@@ -178,6 +178,30 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "user not found"
+  /user/profile/{id}:
+    post:
+      tags:
+        - user
+      summary: Update user details
+      description: This update user details through user form.
+      operationId: updateByUserForm
+      responses:
+        default:
+          description: successful operation
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of user to return"
+          required: true
+          type: "integer"
+          format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        description: Update user object
+        required: true
   /user/login:
     get:
       tags:
@@ -308,14 +332,16 @@ components:
           type: string
         password:
           type: string
+        dob:
+          type: string
+        avatar:
+          type: string
         address:
           type: string
         cart:
           type: array
           items:
             type: string
-        image:
-          type: string
     Refinement:
       type: object
       properties:

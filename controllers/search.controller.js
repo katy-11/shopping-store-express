@@ -6,7 +6,7 @@ module.exports.search = async (req, res) => {
     { $text: { $search: q } },
     { score: { $meta: "textScore" } }
   ).sort({ score: { $meta: "textScore" } });
-  console.log(matchedList);
+  // console.log(matchedList);
   res.render("search/index", {
     itemList: matchedList,
   });

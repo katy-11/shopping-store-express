@@ -13,6 +13,7 @@ head
   link(rel="stylesheet", href="/css/main.css")
   link(rel="stylesheet", href="/css/page.css")
   link(rel="stylesheet", href="/css/singleItem.css")
+  link(rel="stylesheet", href="/css/user.css")
 
   title Kattie
 
@@ -63,14 +64,14 @@ head
       if user
         #user-account.user-account
           #user-avatar.user-avatar
-            img(src="/images/banner.jpg")
+            img(src= user.avatar)
           #user-option.user-option
             ul(class="user-option-wrapper")
-              a(href="")
+              a(href="/user/profile")
                 li My details
-              a(href="")
+              a(href="/user/cart")
                 li My cart
-              a(href="")
+              a(href="/user/order")
                 li My order
               a(href="/sign/out" id="sign-out")
                 li Log out
@@ -156,8 +157,3 @@ script(src="/js/client1.js")
 script(src="/js/auth.client.js")
 script(src="/js/refinement.js")
 script(src="/js/sign.js")
-  //- if user
-  //-   a(href="/profile", style={color:"black"}) Profile
-  //-   span &nbsp
-  //-   img.rounded-circle(src= user.avatarUrl, width= "32", height="32")
-  //-   p= user.name

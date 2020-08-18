@@ -1,9 +1,9 @@
 var User = require("../models/model.user");
 
-module.exports.requireAuth = (req, res, next) => {
-  var user = User.find({
-    id: req.signedCookies.user_id,
-  });
+module.exports.requireAuth = async (req, res, next) => {
+  var user = await User.findOne({
+      _id: req.signedCookies.user_id
+    });
   if (!req.signedCookies.user_id) {
     // console.log(1);
     res.redirect("/sign/in");
@@ -18,9 +18,9 @@ module.exports.requireAuth = (req, res, next) => {
   next();
 };
 
-module.exports.checkUser = (req, res, next) => {
-  var user = User.find({
-    id: req.signedCookies.user_id,
+module.exports.checkUser = async (req, res, next) => {
+  var user = await User.findOne({
+    _id: req.signedCookies.user_id
   });
   if (req.signedCookies.user_id && user) {
     res.locals.user = user;

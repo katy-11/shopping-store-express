@@ -3,6 +3,7 @@
     -ms-flex: 1 0 auto;*/
   display: flex;
   border-top: 1px solid #eee;
+  margin-top: 5px;
 }
 
 .refinement-bar {

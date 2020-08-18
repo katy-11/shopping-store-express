@@ -1,0 +1,72 @@
+.user-options-wrapper {
+ 	margin-top: 20px;
+  	flex: 0 0 230px;
+}
+.user-details-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 auto;
+}
+.user-account-option {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	box-sizing: border-box;
+	background-color: #FFF;
+	border: 1px solid #ddd;
+}
+.user-account-option li {
+	padding: 10px 20px;
+	border-bottom: 1px solid #ddd;
+	color: #424242;
+}
+.user-account-option li:hover {
+	background-color: #ddd;
+}
+.active {
+	background-color: #ddd;
+}
+
+
+/*user-details*/
+.user-details-wrapper {
+	margin-top: 20px;
+}
+.user-details {
+	margin: 0 40px;
+}
+.user-details .input-label {
+	color: #424242;
+}
+.user-details input {
+	color: #333;
+	font-weight: bold;
+	font-size: 18px;
+}
+.user-details input::placeholder {
+	color: #aaa;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.user-details-wrapper h1 {
+	font-weight: bold;
+	letter-spacing: 2;
+}
+.user-details button {
+	padding: 10px 15px;
+	outline: none;
+	border: 0;
+	color: #fff;
+	border-radius: 4px;
+	background: #4a504a;
+	font-size: 18px;
+	letter-spacing: 1.5;
+	transition: 0.3s;
+	cursor: pointer;
+}
+.user-details button:hover {
+	background: rgba(87, 104, 85, 1);
+}
