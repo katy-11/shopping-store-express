@@ -1,0 +1,48 @@
+extends ../layouts/common
+
+block content
+    .container
+        .page-body
+            .user-options-wrapper
+                .user-options
+                    ul(class="user-account-option")
+                      a(href="/user/profile")
+                        li My details
+                      a(href="/user/cart")
+                        li.active My cart
+                      a(href="/user/order")
+                        li My order
+                      a(href="/sign/out" id="sign-out")
+                        li Log out
+            .user-details-wrapper
+              .user-my-cart
+                h1 My cart
+                .shopping-cart
+                  if user.cart.length > 0
+                    each cartItem in user.cart
+                      .item(data-id= cartItem.id)
+                        .image
+                          a(href= "/tops/" + cartItem.id)
+                            img(src= cartItem.imageUrl, alt='')
+                        .description
+                          .des-name
+                            a(href= "/tops/" + cartItem.id)= cartItem.name
+                          .des-color White
+                        .quantity
+                          button.plus-btn(data-id= cartItem.id, type='button', name='button') +
+                          div.quantity-span= cartItem.quantity
+                          button.minus-btn(data-id= cartItem.id, type='button', name='button') -
+                        .price= "$" + cartItem.price
+                        .delete-button
+                          i(class="fas fa-times refinement-clear-icon")
+                    .item-price
+                      .item-price-margin
+                      .description
+                        .des-name Total price:
+                        .des-color 5 items
+                      .price-price $1000
+                  else
+                    .item-nothing Nothing on the cart yet
+
+                    
+                  

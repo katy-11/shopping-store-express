@@ -17,14 +17,14 @@ module.exports.create = async (req, res) => {
 module.exports.postCreate = async (req, res) => {
   if (req.file) {
     //uploaded file to server
-    console.log("file uploaded to server");
+    // console.log("file uploaded to server");
 
     // SEND FILE TO CLOUDINARY
     const cloudinary = require("cloudinary").v2;
     cloudinary.config({
       cloud_name: "huyendxnkgd",
-      api_key: 889324942995861,
-      api_secret: "eImeRjRSKAj5tZlRxKJs4_2EdrE",
+      api_key: process.env.CLOUD_KEY,
+      api_secret: process.env.CLOUD_SECRET,
     });
 
     const path = req.file.path;
@@ -40,7 +40,6 @@ module.exports.postCreate = async (req, res) => {
         const fs = require("fs");
         fs.unlinkSync(path);
         // return image details
-        // res.json(image)
       }
     );
     req.body.imageUrl =
@@ -55,15 +54,14 @@ module.exports.postCreate = async (req, res) => {
 };
 
 module.exports.postUploadSinglePDImage = async (req, res) => {
-  console.log("file uploaded to server", "buoc 1");
   var color = req.body.color;
   var imageItemArray = [];
 
   const cloudinary = require("cloudinary").v2;
   cloudinary.config({
     cloud_name: "huyendxnkgd",
-    api_key: 889324942995861,
-    api_secret: "eImeRjRSKAj5tZlRxKJs4_2EdrE",
+    api_key: process.env.CLOUD_KEY,
+    api_secret: process.env.CLOUD_SECRET,
   });
 
   for (var i = 0; i < req.files.length; i++) {
@@ -81,7 +79,6 @@ module.exports.postUploadSinglePDImage = async (req, res) => {
         const fs = require("fs");
         fs.unlinkSync(path);
         // return image details
-        // res.json(image)
       }
     );
     imageItemArray.push(

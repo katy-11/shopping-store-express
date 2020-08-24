@@ -15,13 +15,13 @@ module.exports.topCreate = async (req, res) => {
 };
 
 module.exports.topViewSingle = async (req, res) => {
-  var top = await Top.find({ _id: req.params.id });
+  var top = await Top.findOne({ _id: req.params.id });
   res.json(top);
 };
 
 module.exports.topUpdate = async (req, res) => {
   var top = await Top.update(
-    {_id: req.params.id},
+    { _id: req.params.id },
     req.body,
     (err, result) => {
       res.json(top);

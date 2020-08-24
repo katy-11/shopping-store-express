@@ -63,14 +63,17 @@ function checkAuth2() {
   }
 
   if (name == null || name == "") {
-    alert("Please enter your name");
+    text = "Please enter your name";
+    error_message.innerHTML = text;
+    error_message.classList.add("input-block", "input-block-wrong");
     return false;
   }
 
   if (isNaN(phone) || phone.length != 10) {
     text = "Please Enter valid phone number";
     error_message.innerHTML = text;
-    return;
+    error_message.classList.add("input-block", "input-block-wrong");
+    return false;
   }
   return true;
 }

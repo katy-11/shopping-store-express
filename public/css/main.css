@@ -269,6 +269,7 @@ body {
 }
 .user-account {
   position: relative;
+  cursor: pointer;
 }
 .user-option {
   display: none;
@@ -302,6 +303,7 @@ body {
 /*Cart*/
 #minicart {
   position: relative;
+  cursor: pointer;
 }
 #cart-icon {
   padding: 3px 3px;
@@ -311,7 +313,6 @@ body {
   top: 110%;
   right: 0%;
   visibility: hidden;
-  width: 0px;
   border: 1px solid #ddd;
   background-color: #fff;
   font-family: "Questrial", sans-serif;
@@ -320,7 +321,6 @@ body {
 }
 .show-cart {
   visibility: visible;
-  width: 300px;
   -moz-transform: translateX(0%);
   -webkit-transform: translateX(0%);
   -o-transform: translateX(0%);
@@ -338,16 +338,21 @@ body {
 .cart-item {
   display: flex;
   flex-direction: row;
-  font-size: 16px;
+  width: 300px;
+  font-size: 14px;
   font-weight: normal;
   letter-spacing: 1px;
   border-bottom: 1px solid #ddd;
   padding: 5px;
   height: 60px;
+  line-height: 1;
   box-sizing: border-box;
 }
 .cart-item:hover {
   background-color: #ddd;
+}
+.cart-item-image {
+  flex: 0 0 49px;
 }
 .cart-item img {
   width: 49px;

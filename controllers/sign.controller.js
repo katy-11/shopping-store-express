@@ -7,13 +7,17 @@ module.exports.signup = (req, res) => {
   res.render("sign/signup");
 };
 
-module.exports.postSignup = async (req, res) => {
-  bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
+module.exports.postSignup = (req, res) => {
+  bcrypt.hash(req.body.password, saltRounds, async function (err, hash) {
     // Store hash in your password DB.
     req.body.password = hash;
-    var user = User.create(req.body);
+    var user = await User.create(req.body); 
+    console.log(user);
+    res.cookie("user_id", user._id, {
+      signed: true
+    });
+    res.redirect("/");
   });
-  res.redirect("/");
 };
 
 module.exports.signin = (req, res) => {

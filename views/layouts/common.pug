@@ -47,34 +47,32 @@ head
         i.fas.fa-shopping-bag#cart-icon
           span.cartCount 
         #cart.cart
-            //- .cart-item
-            //-  .cart-item-image
-            //-   img(src='')
-            //-  .cart-item-body
-            //-     .cart-item-name Huyen 
-            //-     .cart-item-quality Quanity:
-            //-  .cart-item-currency $
-            //-  .cart-item-price 80
-            //- .cart-item.total-price
-            //-   .cart-item-body.cart-total-name
-            //-     .cart-item-
-            //-   .cart-item-currency
-            //-   .cart-price
+          //- .cart-item(data-uuid= id)
+          //-   .cart-item-image
+          //-     a(href='/tops/' + id)
+          //-       img(src= "")
+          //-   .cart-item-body
+          //-     .cart-item-name
+          //-       a(href='/tops/' + id)= name
+          //-     .cart-item-quantity(data-uuid= id) Quantity: 10
+          //-   .cart-item-currency $
+          //-   #cartItemPrice.cart-item-price 85
+
       <i class="fas fa-minus"></i>
       if user
         #user-account.user-account
           #user-avatar.user-avatar
             img(src= user.avatar)
           #user-option.user-option
-            ul(class="user-option-wrapper")
-              a(href="/user/profile")
-                li My details
-              a(href="/user/cart")
-                li My cart
-              a(href="/user/order")
-                li My order
-              a(href="/sign/out" id="sign-out")
-                li Log out
+            //- ul#user-option-wrapper(class="user-option-wrapper")
+            //-   a(href="/user/profile")
+            //-     li My details
+            //-   a(href="/user/cart")
+            //-     li My cart
+            //-   a(href="/user/order")
+            //-     li My order
+            //-   a(href="/sign/out" id="sign-out")
+            //-     li Log out
       else
         .sign-in.sign-in-button Sign in
 block content
@@ -157,3 +155,4 @@ script(src="/js/client1.js")
 script(src="/js/auth.client.js")
 script(src="/js/refinement.js")
 script(src="/js/sign.js")
+script(src="/js/user.js")

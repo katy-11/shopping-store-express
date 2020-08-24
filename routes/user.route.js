@@ -11,4 +11,6 @@ Router.post("/profile/:id",
 	upload.single("avatar"),
 	controller.postProfile);
 
+Router.get("/cart", controller.myCart);
+
 module.exports = Router;
