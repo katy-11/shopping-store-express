@@ -36,9 +36,6 @@ function cartItemDiv() {
         cart.appendChild(cartItem);
      }
 }
-function countItem(x) {
-  document.querySelector(".cartCount").textContent = x;
-}
 
 // show cart and place item on cart
 let a = false;
@@ -58,6 +55,11 @@ let a = false;
       CART.init();
       if (response.data["cart"].length > 0) {
         document.querySelector(".cartCount").textContent = CART.count();
+      }
+      try {
+        document.querySelector(".price-price").textContent = "$" + CART.price();
+      } catch (error) {
+        console.log(error)
       }
     } else {
       CART.init();

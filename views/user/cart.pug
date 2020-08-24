@@ -20,26 +20,26 @@ block content
                 .shopping-cart
                   if user.cart.length > 0
                     each cartItem in user.cart
-                      .item(data-id= cartItem.id)
+                      .item(data-id= cartItem.id, data-cartitem-id= cartItem.id)
                         .image
                           a(href= "/tops/" + cartItem.id)
                             img(src= cartItem.imageUrl, alt='')
                         .description
                           .des-name
                             a(href= "/tops/" + cartItem.id)= cartItem.name
-                          .des-color White
+                          .des-color= cartItem.color
                         .quantity
                           button.plus-btn(data-id= cartItem.id, type='button', name='button') +
                           div.quantity-span= cartItem.quantity
                           button.minus-btn(data-id= cartItem.id, type='button', name='button') -
                         .price= "$" + cartItem.price
                         .delete-button
-                          i(class="fas fa-times refinement-clear-icon")
+                          i(class="fas fa-times cart-clear-icon refinement-clear-icon")
                     .item-price
                       .item-price-margin
                       .description
                         .des-name Total price:
-                        .des-color 5 items
+                        .des-color.des-total= user.cart.length + " items"
                       .price-price $1000
                   else
                     .item-nothing Nothing on the cart yet

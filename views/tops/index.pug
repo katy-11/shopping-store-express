@@ -75,7 +75,7 @@ block content
 				.product-wrapper
 					#row.row
 						each top in tops
-							.product-item.col-4(data-page-number="0" data-product-details={"id": top._id, "name": top.name, "price": top.price, "imageUrl": top.imageUrl})
+							.product-item.col-4(data-page-number="0" data-product-details={"id": top._id, "name": top.name, "price": top.price, "imageUrl": top.imageUrl, "color": top.color})
 								.product-carousel
 									a(href="/tops/" + top.id)
 										img(src=top.imageUrl)

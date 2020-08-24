@@ -159,6 +159,11 @@
 	align-items: center;
 	justify-content: center;
 }
+/*.delete-button i {
+	flex-flow: 1;
+	width: 20px;
+	height: 20px;
+}*/
 .item-price {
 	height: 70px;
 	display: flex;
