@@ -85,11 +85,11 @@ block content
 						each item in itemList
 							.product-item.col-4(data-page-number="0" data-product-details={"id": item._id, "name": item.name, "price": item.price, "imageUrl": item.imageUrl})
 								.product-carousel
-									a(href="/tops/" + item.id)
+									a(href="/product/" + item.id)
 										img(src=item.imageUrl)
 								.product-title-body
-									a(href="/tops/" + item.id, class= "product-title-name")= item.name
-										a(href="/tops/" + item.id)
+									a(href="/product/" + item.id, class= "product-title-name")= item.name
+										a(href="/product/" + item.id)
 									.product-title-price= "AU$" + item.price + ".00"
 								.product-title-footer
 									.product-title-color

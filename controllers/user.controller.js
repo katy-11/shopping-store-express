@@ -28,9 +28,13 @@ module.exports.postProfile = async (req, res) => {
         fs.unlinkSync(path);
         // return image details
         req.body.avatar = result.url;
-	    let user = await User.updateOne(
-			{_id: req.params.id}, 
-			req.body);
+      try {
+  	    let user = await User.updateOne(
+  			{_id: req.params.id}, 
+  			req.body);
+      } catch (error) {
+        res.render('error');
+      }
 		res.redirect('/user/profile');
     });
   } else {

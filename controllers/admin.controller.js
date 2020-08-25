@@ -16,9 +16,6 @@ module.exports.create = async (req, res) => {
 
 module.exports.postCreate = async (req, res) => {
   if (req.file) {
-    //uploaded file to server
-    // console.log("file uploaded to server");
-
     // SEND FILE TO CLOUDINARY
     const cloudinary = require("cloudinary").v2;
     cloudinary.config({

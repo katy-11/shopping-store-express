@@ -8,27 +8,37 @@ module.exports.usersIndex = async (req, res) => {
 };
 
 module.exports.userSingleDetail = async (req, res) => {
-  var user = await User.findOne({ _id: req.params.id });
-  res.json(user);
+  try {
+    var user = await User.findOne({ _id: req.params.id });
+    res.json(user);
+  } catch (error) {
+    res.sendStatus(404);
+  }
 };
 
 module.exports.userUpdate = async (req, res) => {
-  var user = await User.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    (err, result) => res.json(user)
-  );
+  try {
+    var user = await User.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      (err, result) => res.json(result)
+    );
+  } catch (error) {
+    res.sendStatus(404);
+  }
 };
 
 module.exports.cartUpdate = async (req, res) => {};
 
 module.exports.userDelete = async (req, res) => {
-  var user = await User.findByIdAndRemove(req.params.id, (err, result) => {
-    if (err) {
-      res.send("remove not successfully");
-    }
-    res.send("remove successfully");
-  });
+  try {
+    var user = await User.findByIdAndRemove(req.params.id, (err, result) => {
+      res.send("remove successfully");
+    });
+  } catch (error) {
+    res.send("remove not successfully");
+    res.sendStatus(404);
+  }
 };
 
 module.exports.userSigninCheck = async (req, res) => {

@@ -77,11 +77,11 @@ block content
 						each top in tops
 							.product-item.col-4(data-page-number="0" data-product-details={"id": top._id, "name": top.name, "price": top.price, "imageUrl": top.imageUrl, "color": top.color})
 								.product-carousel
-									a(href="/tops/" + top.id)
+									a(href="/product/" + top.id)
 										img(src=top.imageUrl)
 								.product-title-body
-									a(href="/tops/" + top.id, class= "product-title-name")= top.name
-										a(href="/tops/" + top.id)
+									a(href="/product/" + top.id, class= "product-title-name")= top.name
+										a(href="/product/" + top.id)
 									.product-title-price= "AU$" + top.price + ".00"
 								.product-title-footer
 									.product-title-color

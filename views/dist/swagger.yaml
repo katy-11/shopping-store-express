@@ -15,19 +15,57 @@ info:
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 basePath: "/v2"
 tags:
-  - name: top
-    description: top room
+  - name: product
+    description: product room
   - name: user
     description: user detail
   - name: sign
 paths:
-  /api/top:
+  /api/product/database:
+    get:
+      tags:
+        - database
+      summary: "Show all product database"
+      description: "Returns all json products"
+      operationId: "productDatabase"
+      produces:
+        - "application/xml"
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/components/schemas/Clothes"
+        "400":
+          description: "Errors"
+        "404":
+          description: "Error"
+  /api/user/database:
+    get:
+      tags:
+        - database
+      summary: "Show all user database"
+      description: "Returns all json users"
+      operationId: "userDatabase"
+      produces:
+        - "application/xml"
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/components/schemas/Clothes"
+        "400":
+          description: "Errors"
+        "404":
+          description: "Error"
+  /api/product:
     post:
       tags:
-        - top
-      summary: Create new top
+        - product
+      summary: Create new product
       description: I can upload file path so use http://localhost:3000/admin/create This can not contain image url.
-      operationId: createTop
+      operationId: createproduct
       responses:
         default:
           description: successful operation
@@ -38,20 +76,20 @@ paths:
               $ref: "#/components/schemas/Clothes"
         description: Created user object
         required: true
-  /api/top/{id}:
+  /api/product/{id}:
     get:
       tags:
-        - top
-      summary: "Find top by ID"
-      description: "Returns a single top"
-      operationId: "getTopById"
+        - product
+      summary: "Find product by ID"
+      description: "Returns a single product"
+      operationId: "getproductById"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
         - name: "id"
           in: "path"
-          description: "ID of top to return"
+          description: "ID of product to return"
           required: true
           type: "integer"
           format: "int64"
@@ -63,17 +101,17 @@ paths:
         "400":
           description: "Invalid ID supplied"
         "404":
-          description: "top not found"
+          description: "product not found"
     put:
       tags:
-        - top
-      summary: Update top detail with form data
+        - product
+      summary: Update product detail with form data
       description: This can only be done by the admin.
-      operationId: updateTop
+      operationId: updateproduct
       parameters:
         - name: "id"
           in: "path"
-          description: "ID of top that needs to be updated"
+          description: "ID of product that needs to be updated"
           required: true
           type: "integer"
           format: "int64"
@@ -89,17 +127,17 @@ paths:
           description: successful operation
     delete:
       tags:
-        - top
-      summary: "Deletes a top"
+        - product
+      summary: "Deletes a product"
       description: ""
-      operationId: "deleteTop"
+      operationId: "deleteproduct"
       produces:
         - "application/xml"
         - "application/json"
       parameters:
         - name: "id"
           in: "path"
-          description: "top id to delete"
+          description: "product id to delete"
           required: true
           type: "integer"
           format: "int64"
@@ -107,7 +145,7 @@ paths:
         "400":
           description: "Invalid ID supplied"
         "404":
-          description: "top not found"
+          description: "product not found"
   /api/user/{id}:
     get:
       tags:
@@ -182,7 +220,7 @@ paths:
     post:
       tags:
         - user
-      summary: Update user details
+      summary: Update user details (with avatar upload)
       description: This update user details through user form.
       operationId: updateByUserForm
       responses:
@@ -202,57 +240,6 @@ paths:
               $ref: "#/components/schemas/User"
         description: Update user object
         required: true
-  /user/login:
-    get:
-      tags:
-        - user
-      summary: Logs user into the system
-      operationId: loginUser
-      parameters:
-        - name: username
-          in: query
-          description: The user name for login
-          required: true
-          schema:
-            type: string
-        - name: password
-          in: query
-          description: The password for login in clear text
-          required: true
-          schema:
-            type: string
-      responses:
-        "200":
-          description: successful operation
-          headers:
-            X-Rate-Limit:
-              description: calls per hour allowed by the user
-              schema:
-                type: integer
-                format: int32
-            X-Expires-After:
-              description: date in UTC when token expires
-              schema:
-                type: string
-                format: date-time
-          content:
-            application/json:
-              schema:
-                type: string
-            application/xml:
-              schema:
-                type: string
-        "400":
-          description: Invalid username/password supplied
-  /user/logout:
-    get:
-      tags:
-        - user
-      summary: Logs out current logged in user session
-      operationId: logoutUser
-      responses:
-        default:
-          description: successful operation
   /api/sign/in:
     post:
       tags:

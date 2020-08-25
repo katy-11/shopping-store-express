@@ -18,7 +18,7 @@ head
   title Kattie
 
 .container-fluid
-  .row.pre-header1(onClick="authenication()") FREE SHIPPING ON ORDERS OVER $50
+  .row.pre-header1 FREE SHIPPING ON ORDERS OVER $50
 // Navigation
 .container 
   .row
@@ -49,11 +49,11 @@ head
         #cart.cart
           //- .cart-item(data-uuid= id)
           //-   .cart-item-image
-          //-     a(href='/tops/' + id)
+          //-     a(href='/product/' + id)
           //-       img(src= "")
           //-   .cart-item-body
           //-     .cart-item-name
-          //-       a(href='/tops/' + id)= name
+          //-       a(href='/product/' + id)= name
           //-     .cart-item-quantity(data-uuid= id) Quantity: 10
           //-   .cart-item-currency $
           //-   #cartItemPrice.cart-item-price 85
@@ -110,28 +110,26 @@ block content
           div
             label.font-7.label-bottom FRAIS
             ul.menu-list-bottom.flex-column
-              a(href='#')
-                li.menu-item-bottom SHOP ALL
-              a(href='#')
-                li.menu-item-bottom FOR BODY
-              a(href='#')
-                li.menu-item-bottom FOR HOME
-              a(href='#')
-                li.menu-item-bottom ABOUT
-              a(href='#')
-                li.menu-item-bottom CONTACT
+              a(href='/new-arrivals')
+                li.menu-item-bottom NEW ARRIVALS
+              a(href='/tops')
+                li.menu-item-bottom SHOP TOPS
+              a(href='/dresses')
+                li.menu-item-bottom SHOP DRESSES
+              a(href='/bottoms')
+                li.menu-item-bottom SHOP BOTTOM
+              a(href='/sales')
+                li.menu-item-bottom SHOP SALES
         .col-sm-12.col-lg-3
           label.font-7.label-bottom HELP
           .menu-bar
             ul.menu-list-bottom.flex-column
               a(href='#')
-                li.menu-item-bottom SHOP ALL
-              a(href='#')
                 li.menu-item-bottom SHIPPING AND RETURN
               a(href='#')
-                li.menu-item-bottom FOR HOME
-              a(href='#')
                 li.menu-item-bottom PAYMENT METHOD
+              a(href='#')
+                li.menu-item-bottom ASK QUESTION
         .col-sm-12.col-lg-3
           label.font-7.label-bottom CONTACT
           .menu-bar
@@ -140,8 +138,8 @@ block content
                 li.menu-item-bottom 123-456-7890
               a(href='#')
                 li.menu-item-bottom HOHUYEN1114@GMAIL.COM
-              a(href='#')
-                li.menu-item-bottom FOR HOME
+              a(href='/contact')
+                li.menu-item-bottom MORE INFO
         .col-sm-12.col-lg-4
           label.font-7.label-bottom NEWS LETTER
           .subscribe

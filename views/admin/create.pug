@@ -2,7 +2,7 @@ extends ../layouts/common
 
 block content
     .container
-        h1 Create new tops
+        h1 Create new product
         form(action="/admin/create" method="POST" enctype="multipart/form-data")
             input.mb-2(name="name", placeholder="Name", value=values ? values.name : "")
             br
@@ -48,10 +48,10 @@ block content
             input(name="imageItem", class="mb-2", type="file")
             br
             button(class="btn btn-primary") Create
-        h1  All tops
+        h1  All products
         ul
             each top in tops
-                a(href="/admin/edit/top/" + top._id)= top.name
+                a(href= top._id)= top.name
                 br
 
        

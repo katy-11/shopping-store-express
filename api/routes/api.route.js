@@ -1,27 +1,28 @@
 var express = require("express");
 
-var topController = require("../controllers/top.controller");
+var productController = require("../controllers/product.controller");
 var userController = require("../controllers/user.controller");
 var refinementController = require("../controllers/refinement.controller");
 
 var Route = express.Router("");
 
-// top api
-Route.get("/top", topController.topIndex);
+//API swagger UI
+Route.get("/swagger", productController.productIndex);
 
-Route.get("/top/database", topController.topDatabase);
+// product api
+Route.get("/product/database", productController.productDatabase);
 
-Route.post("/top", topController.topCreate);
+Route.post("/product", productController.productCreate);
 
-Route.get("/top/:id", topController.topViewSingle);
+Route.get("/product/:id", productController.productViewSingle);
 
-Route.put("/top/:id", topController.topUpdate);
+Route.put("/product/:id", productController.productUpdate);
 
-Route.delete("/top/:id", topController.topDelete);
+Route.delete("/product/:id", productController.productDelete);
 
 // user api
 
-Route.get("/user", userController.usersIndex);
+Route.get("/user/database", userController.usersIndex);
 
 Route.get("/user/:id", userController.userSingleDetail);
 
@@ -31,8 +32,6 @@ Route.put("/user/cart/:id", userController.cartUpdate);
 
 Route.delete("/user/:id", userController.userDelete);
 
-module.exports = Route;
-
 // sign (user.controller.js)
 
 Route.post("/sign/in", userController.userSigninCheck);
@@ -40,3 +39,5 @@ Route.post("/sign/in", userController.userSigninCheck);
 //refinement
 
 Route.post("/refinement", refinementController.postFilterRefinement);
+
+module.exports = Route;
