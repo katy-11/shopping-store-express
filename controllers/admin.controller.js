@@ -1,16 +1,16 @@
-var Top = require("../models/model.top");
+var Product = require("../models/model.product");
 
 module.exports.index = async (req, res) => {
-  var tops = await Top.find();
+  var products = await Product.find();
   res.render("admin/index", {
-    tops: tops,
+    products: products,
   });
 };
 
 module.exports.create = async (req, res) => {
-  var tops = await Top.find();
+  var products = await Product.find();
   res.render("admin/create", {
-    tops: tops,
+    products: products,
   });
 };
 
@@ -29,7 +29,7 @@ module.exports.postCreate = async (req, res) => {
 
     cloudinary.uploader.upload(
       path,
-      { public_id: `kattie/tops/${uniqueFilename}`, tags: `tops` }, // directory and tags are optional
+      { public_id: `kattie/products/${uniqueFilename}`, tags: `tops` }, // directory and tags are optional
       function (err, image) {
         if (err) return res.send(err);
         console.log("file uploaded to Cloudinary");
@@ -46,7 +46,7 @@ module.exports.postCreate = async (req, res) => {
     req.body.imageUrl =
       "https://res.cloudinary.com/huyendxnkgd/image/upload/v1593021031/testProjectGlitch/defaultAvatar.png";
   }
-  var top = await Top.create(req.body);
+  var product = await Product.create(req.body);
   res.redirect("/admin/create");
 };
 
@@ -83,7 +83,7 @@ module.exports.postUploadSinglePDImage = async (req, res) => {
         uniqueFilename
     );
   }
-  var top = await Top.updateOne(
+  var product = await Product.updateOne(
     { _id: req.body.id },
     { $push: { imageItem: [imageItemArray] } }
   );

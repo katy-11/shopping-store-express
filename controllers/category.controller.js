@@ -1,16 +1,16 @@
-var Top = require("../models/model.top");
+var Product = require("../models/model.product");
 
 module.exports.topView = async (req, res) => {
-  var tops = await Top.find();
-  res.render("tops/index", {
-    tops: tops,
+  var products = await Product.find();
+  res.render("products/index", {
+    products: products,
   });
 };
 
 module.exports.saleView = async (req, res) => {
-  var sales = await Top.find({sale: true});
-  res.render("tops/index", {
-    tops: sales,
+  var sales = await Product.find({sale: true});
+  res.render("products/index", {
+    products: sales,
   });
 };
 

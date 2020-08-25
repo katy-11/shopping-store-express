@@ -1,5 +1,5 @@
 var User = require("../models/model.user");
-var Top = require("../models/model.top");
+
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 

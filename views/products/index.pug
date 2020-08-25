@@ -74,15 +74,15 @@ block content
 			.product-showroom
 				.product-wrapper
 					#row.row
-						each top in tops
-							.product-item.col-4(data-page-number="0" data-product-details={"id": top._id, "name": top.name, "price": top.price, "imageUrl": top.imageUrl, "color": top.color})
+						each product in products
+							.product-item.col-4(data-page-number="0" data-product-details={"id": product._id, "name": product.name, "price": product.price, "imageUrl": product.imageUrl, "color": product.color})
 								.product-carousel
-									a(href="/product/" + top.id)
-										img(src=top.imageUrl)
+									a(href="/product/" + product.id)
+										img(src=product.imageUrl)
 								.product-title-body
-									a(href="/product/" + top.id, class= "product-title-name")= top.name
-										a(href="/product/" + top.id)
-									.product-title-price= "AU$" + top.price + ".00"
+									a(href="/product/" + product.id, class= "product-title-name")= product.name
+										a(href="/product/" + product.id)
+									.product-title-price= "AU$" + product.price + ".00"
 								.product-title-footer
 									.product-title-color
 									.add-to-cart Add to bag

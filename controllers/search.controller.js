@@ -1,8 +1,8 @@
-var Top = require("../models/model.top");
+var Product = require("../models/model.product");
 
 module.exports.search = async (req, res) => {
   var q = req.query.q;
-  var matchedList = await Top.find(
+  var matchedList = await Product.find(
     { $text: { $search: q } },
     { score: { $meta: "textScore" } }
   ).sort({ score: { $meta: "textScore" } });
