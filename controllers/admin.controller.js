@@ -29,7 +29,7 @@ module.exports.postCreate = async (req, res) => {
 
     cloudinary.uploader.upload(
       path,
-      { public_id: `kattie/products/${uniqueFilename}`, tags: `tops` }, // directory and tags are optional
+      { public_id: `kattie/products/${req.body.category}/${uniqueFilename}`},
       function (err, image) {
         if (err) return res.send(err);
         console.log("file uploaded to Cloudinary");
@@ -40,8 +40,9 @@ module.exports.postCreate = async (req, res) => {
       }
     );
     req.body.imageUrl =
-      "https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/" +
-      uniqueFilename;
+      "https://res.cloudinary.com/huyendxnkgd/image/upload/kattie/products/"
+      + req.body.category + "/" 
+      + uniqueFilename;
   } else {
     req.body.imageUrl =
       "https://res.cloudinary.com/huyendxnkgd/image/upload/v1593021031/testProjectGlitch/defaultAvatar.png";
@@ -71,7 +72,8 @@ module.exports.postUploadSinglePDImage = async (req, res) => {
       { public_id: `kattie/${uniqueFilename}`, tags: `${color}` }, // directory and tags are optional
       function (err, image) {
         if (err) return res.send(err);
-        console.log("file uploaded to Cloudinary");
+        console.log("https://res.cloudinary.com/huyendxnkgd/image/upload/kattie/" +
+        uniqueFilename);
         // remove file from server
         const fs = require("fs");
         fs.unlinkSync(path);
@@ -79,13 +81,17 @@ module.exports.postUploadSinglePDImage = async (req, res) => {
       }
     );
     imageItemArray.push(
-      "https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/" +
+      "https://res.cloudinary.com/huyendxnkgd/image/upload/kattie/" +
         uniqueFilename
     );
+  } 
+  try {
+    let product = await Product.updateOne(
+      { _id: req.body.id },
+      { $push: { imageItem: [imageItemArray] } }
+    );
+    res.redirect("/admin/create");
+  } catch (error) {
+    console.log(error)
   }
-  var product = await Product.updateOne(
-    { _id: req.body.id },
-    { $push: { imageItem: [imageItemArray] } }
-  );
-  res.redirect("/admin/create");
 };

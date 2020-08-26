@@ -14,7 +14,7 @@ var productSchema = new mongoose.Schema({
     default: false
   },
   imageItem: Array,
-  date: String,
+  date: Date,
 });
 
 var Product = mongoose.model("products", productSchema);

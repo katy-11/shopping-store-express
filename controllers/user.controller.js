@@ -19,7 +19,7 @@ module.exports.postProfile = async (req, res) => {
 
     cloudinary.uploader.upload(
       path,
-      { public_id: `kattie/avatar/${uniqueFilename}`, tags: `avatar` }, // directory and tags are optional
+      { public_id: `kattie/avatar/${uniqueFilename}`},
       async function (err, result) {
         if (err) return res.send(err);
         // console.log("file uploaded to Cloudinary");
@@ -28,15 +28,16 @@ module.exports.postProfile = async (req, res) => {
         fs.unlinkSync(path);
         // return image details
         req.body.avatar = result.url;
-      try {
-  	    let user = await User.updateOne(
-  			{_id: req.params.id}, 
-  			req.body);
-      } catch (error) {
-        res.render('error');
+        try {
+    	    let user = await User.updateOne(
+    			{_id: req.params.id}, 
+    			req.body);
+        } catch (error) {
+          res.render('error');
+        }
+		    res.redirect('/user/profile');
       }
-		res.redirect('/user/profile');
-    });
+    );
   } else {
 		let user = await User.updateOne(
 			{_id: req.params.id}, 

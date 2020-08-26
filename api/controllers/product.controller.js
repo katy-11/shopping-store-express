@@ -27,7 +27,7 @@ module.exports.productUpdate = async (req, res) => {
   try {
     var product = await Product.update(
       { _id: req.params.id },
-      req.body);
+      {$set: req.body});
     res.json(product);
   }  catch (error) {
     res.sendStatus(404);
@@ -38,10 +38,6 @@ module.exports.productDelete = async (req, res) => {
   var product = await Product.findByIdAndRemove(req.params.id, (err, result) => {
     if (err) {
       res.send("remove not successfully");
-    }
-    if (!product) {
-      res.sendStatus(404);
-      return;
     }
     res.send("remove successfully");
   });

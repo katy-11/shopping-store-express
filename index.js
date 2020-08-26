@@ -21,6 +21,7 @@ var authMiddleware = require('./middleware/auth.middleware');
 
 var port = process.env.PORT || 3000;
 var app = express();
+
 app.set("view engine", "pug");
 app.set("views", "./views");
 
@@ -30,15 +31,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var apiRoute = require("./api/routes/api.route");
 
 app.use(cookieParser("process.env.SESSION_SECRET"));
+app.use(express.static("public"));
+app.use(express.static("views/dist"));
 
 app.get("/", authMiddleware.checkUser, (req, res) => {
   res.render("index");
 });
-app.get("/tops", authMiddleware.checkUser, categoryController.topView);
-app.get("/sales", authMiddleware.checkUser, categoryController.saleView);
 
-app.use(express.static("public"));
-app.use(express.static("views/dist"));
+app.get("/new-arrivals", authMiddleware.checkUser, categoryController.newView);
+app.get("/bags", authMiddleware.checkUser, categoryController.bagView);
+app.get("/tops", authMiddleware.checkUser, categoryController.topView);
+app.get("/bottoms", authMiddleware.checkUser, categoryController.bottomView);
+app.get("/sales", authMiddleware.checkUser, categoryController.saleView);
 
 app.use("/admin", adminRoute);
 app.use("/api", apiRoute);

@@ -4,32 +4,32 @@ block content
     .container
         h1 Create new product
         form(action="/admin/create" method="POST" enctype="multipart/form-data")
-            input.mb-2(name="name", placeholder="Name", value=values ? values.name : "")
+            input.mb-2(name="name", placeholder="Product name")
             br
-            input.mb-2(name="desc", placeholder="Description", , value=values ? values.desc : "")
+            input.mb-2(name="desc", placeholder="Description")
             br
-            input.mb-2(name="price", placeholder="Price", , value=values ? values.price : "")
+            input.mb-2(name="price", placeholder="Price")
             br
-            input.mb-2(name="color", placeholder="Color", value=values ? values.color : "")
+            input.mb-2(name="color", placeholder="Color")
             br
-            input.mb-2(name="category", placeholder="Category", , value=values ? values.category : "")
+            input.mb-2(name="category", placeholder="Category")
             br
-            input.mb-2(name="type", placeholder="Type", , value=values ? values.type : "")
+            input.mb-2(name="type", placeholder="Type(Sweater/Tees/CrossBag)")
             br 
-            input.mb-2(name="colorPicker", placeholder="[Array of colors]", , value=values ? values.colorPicker : "")
+            input.mb-2(name="colorPicker", placeholder="Array, of, colors")
             br
-            input.mb-2(name="sale", placeholder="true/false", , value=values ? values.sale : "")
+            input.mb-2(name="sale", placeholder="true/false", value= "false")
             br
-            input.mb-2(name="date", placeholder="DD/MM/YYYY", , value=values ? values.date : "")
+            input.mb-2(name="date", placeholder="DD/MM/YYYY", , value= new Date())
             br
             input(name="imageUrl", class="mb-2", type="file")
             br
             button(class="btn btn-primary") Create
         h1 Upload single product images
         form(action="/admin/create/uploadSinglePDImage" method="POST" enctype="multipart/form-data")
-            input.mb-2(name="id", placeholder="Product ID", , value=values ? values.desc : "")
+            input.mb-2(name="id", placeholder="Product ID")
             br
-            input.mb-2(name="color", placeholder="Color", , value=values ? values.desc : "")
+            input.mb-2(name="color", placeholder="Color")
             br
             input(name="imageItem", class="mb-2", type="file")
             br
@@ -51,7 +51,7 @@ block content
         h1  All products
         ul
             each product in products
-                a(href= top._id)= top.name
+                a(href= product._id)= product.name
                 br
 
        
