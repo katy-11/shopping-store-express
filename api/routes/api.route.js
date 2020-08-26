@@ -39,5 +39,6 @@ Route.post("/sign/in", userController.userSigninCheck);
 //refinement
 
 Route.post("/refinement", refinementController.postFilterRefinement);
+Route.post("/refinement/sort", refinementController.postSortedRefinement);
 
 module.exports = Route;

@@ -33,6 +33,7 @@
 .refinement-clear {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .refinement-clear-text {
   font-size: 10px;

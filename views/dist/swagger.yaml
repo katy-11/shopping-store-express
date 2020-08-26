@@ -274,6 +274,23 @@ paths:
               $ref: "#/components/schemas/Refinement"
         description:
         required: true
+  /api/refinement/sort:
+    post:
+      tags:
+        - refinement
+      summary: Filter product by selected refinement and sort them then
+      description: Enter your selection
+      operationId: Refinement
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Refinement"
+        description:
+        required: true
 components:
   schemas:
     Clothes:

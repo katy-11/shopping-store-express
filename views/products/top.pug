@@ -1,0 +1,98 @@
+extends ../layouts/common
+
+block content
+	.container-fluid
+		.page-body
+			.refinement-bar
+				.refinement-card
+					.refinement-heading
+						span.refinement-header Tops
+						.refinement-clear(data-ref="typeGroup" data-group="type")
+							span.refinement-clear-text Clear
+							i(class="fas fa-times refinement-clear-icon")
+					.refinement-selected-values
+					.refinement-scroll-body
+						.refinement-item
+							.custom-checkbox
+								input#refinement-tees(type="checkbox" data-ref="typeGroup" data-refType="Tees")
+								label(for="refinement-tees" class="refinement-sub")
+									span Tees
+							.custom-checkbox
+								input#refinement-blazer(type="checkbox" data-ref="typeGroup" data-refType="Blazer")
+								label(for="refinement-blazer" class="refinement-sub")
+									span Blazers
+							.custom-checkbox
+								input#refinement-jacket(type="checkbox" data-ref="typeGroup" data-refType="Jacket")
+								label(for="refinement-jacket" class="refinement-sub")
+									span Jackets and Coat
+							.custom-checkbox
+								input#refinement-sweater(type="checkbox" data-ref="typeGroup" data-refType="Sweater")
+								label(for="refinement-sweater" class="refinement-sub")
+									span Sweaters
+				.refinement-card
+					.refinement-heading
+						span.refinement-header Color
+						.refinement-clear(data-ref="colorGroup" data-group="color")
+							span.refinement-clear-text Clear
+							i(class="fas fa-times refinement-clear-icon")
+					.refinement-selected-values
+					.refinement-scroll-body
+						.refinement-item
+							.custom-checkbox
+								input#refinement-black(type="checkbox" data-ref="colorGroup" data-refColor="Black")
+								label(for="refinement-black" class="refinement-sub")
+									span Black
+							.custom-checkbox
+								input#refinement-white(type="checkbox" data-ref="colorGroup" data-refColor="White")
+								label(for="refinement-white" class="refinement-sub")
+									span White
+							.custom-checkbox
+								input#refinement-orange(type="checkbox" data-ref="colorGroup" data-refColor="Orange")
+								label(for="refinement-orange" class="refinement-sub")
+									span Orange
+							.custom-checkbox
+								input#refinement-pink(type="checkbox" data-ref="colorGroup" data-refColor="Pink")
+								label(for="refinement-pink" class="refinement-sub")
+									span Pink
+							.custom-checkbox
+								input#refinement-blue(type="checkbox" data-ref="colorGroup" data-refColor="Blue")
+								label(for="refinement-blue" class="refinement-sub")
+									span Blue	
+				.refinement-card
+					.refinement-heading
+						span.refinement-header Price
+						.refinement-clear(data-ref="priceGroup" data-group="price")
+							span.refinement-clear-text Clear
+							i(class="fas fa-times refinement-clear-icon")
+					.refinement-selected-values
+					.refinement-scroll-body
+						.refinement-item
+							.custom-checkbox
+								input#refinement-price1(type="radio" name="price" data-ref="priceGroup" data-refPrice1="20" data-refPrice2="50")
+								label(for="refinement-price1" class="refinement-sub")
+									span "AU$20 to AU$50"
+							.custom-checkbox
+								input#refinement-price2(type="radio" name="price" data-ref="priceGroup" data-refPrice1="50" data-refPrice2="99")
+								label(for="refinement-price2" class="refinement-sub")
+									span "AU$50 to AU$99"
+							.custom-checkbox
+								input#refinement-price3(type="radio" name="price" data-ref="priceGroup" data-refPrice1="100" data-refPrice2="200")
+								label(for="refinement-price3" class="refinement-sub")
+									span "AU$100 and above"
+			.product-showroom
+				.product-wrapper
+					#row.row
+						each product in products
+							.product-item.col-4(data-page-number="0" data-product-details={"id": product._id, "name": product.name, "price": product.price, "imageUrl": product.imageUrl, "color": product.color})
+								.product-carousel
+									a(href="/product/" + product.id)
+										img(src=product.imageUrl)
+								.product-title-body
+									a(href="/product/" + product.id, class= "product-title-name")= product.name
+										a(href="/product/" + product.id)
+									.product-title-price= "AU$" + product.price + ".00"
+								.product-title-footer
+									.product-title-color
+									.add-to-cart Add to bag
+
+						

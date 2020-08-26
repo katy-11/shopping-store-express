@@ -6,29 +6,29 @@ block content
 			.refinement-bar
 				.refinement-card
 					.refinement-heading
-						span.refinement-header Bags
-						span.refinement-clear
+						span.refinement-header New Arrivals
+						.refinement-clear(data-ref="categoryGroup")
 							span.refinement-clear-text Clear
 							i(class="fas fa-times refinement-clear-icon")
 					.refinement-selected-values
 					.refinement-scroll-body
 						.refinement-item
 							.custom-checkbox
-								input#refinement-crossbody(type="checkbox" data-ref="typeGroup" data-refType="Crossbody")
-								label(for="refinement-crossbody" class="refinement-sub")
-									span Crossbodys
+								input#refinement-bags(type="checkbox" data-ref="categoryGroup" data-refCategory="Bags")
+								label(for="refinement-bags" class="refinement-sub")
+									span Bags
 							.custom-checkbox
-								input#refinement-handbag(type="checkbox" data-ref="typeGroup" data-refType="Handbag")
-								label(for="refinement-handbag" class="refinement-sub")
-									span Handbags
+								input#refinement-tops(type="checkbox" data-ref="categoryGroup" data-refCategory="Tops")
+								label(for="refinement-tops" class="refinement-sub")
+									span Tops
 							.custom-checkbox
-								input#refinement-backpack(type="checkbox" data-ref="typeGroup" data-refType="Backpack")
-								label(for="refinement-backpack" class="refinement-sub")
-									span Backpacks
+								input#refinement-bottoms(type="checkbox" data-ref="categoryGroup" data-refCategory="Bottoms")
+								label(for="refinement-bottoms" class="refinement-sub")
+									span Bottoms
 				.refinement-card
 					.refinement-heading
 						span.refinement-header Color
-						span.refinement-clear
+						.refinement-clear(data-ref="colorGroup" data-group="color")
 							span.refinement-clear-text Clear
 							i(class="fas fa-times refinement-clear-icon")
 					.refinement-selected-values
@@ -53,7 +53,7 @@ block content
 				.refinement-card
 					.refinement-heading
 						span.refinement-header Price
-						span.refinement-clear
+						.refinement-clear(data-ref="priceGroup" data-group="price")
 							span.refinement-clear-text Clear
 							i(class="fas fa-times refinement-clear-icon")
 					.refinement-selected-values
