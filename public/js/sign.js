@@ -43,7 +43,6 @@ try {
       cart.classList.remove("show-cart");
       cart.textContent = "";
       a = false;
-      return;
     }
 
     let userToggle = userOption.classList.toggle("user-option-clicked");

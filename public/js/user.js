@@ -34,7 +34,7 @@ const CART = {
     		CART.inscrease(id);
     	} else {
 	    	try {
-	        	const response = await axios.get(`/api/top/${id}`);
+	        	const response = await axios.get(`/api/product/${id}`);
 		        let addedObj = {
     				id: response.data._id,
 			        name: response.data.name,
@@ -126,42 +126,11 @@ let PRODUCTS = [];
 
 async function getProducts(success, failure) {
 	try {
-        const response = await axios.get("/api/top/database")
+        const response = await axios.get("/api/product/database")
         return response.data;
       } catch (error) {
         console.log(error)
       }
-}
-
-function databaseUpdate() {
-  if (getCookie("user_id")) {
-  axios({
-    method: "put",
-    url: "/api/user/" + getCookie("user_id"),
-    data: { cart: JSON.parse(localStorage.getItem("data"))},
-  })
-    .then(function (response) {
-      console.log(response.data, "huyen");
-    })
-    .catch(function (error) {
-      console.log(error, "client fail");
-    });
-}}
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.match(/"(.*?)"/)[1];
-    }
-  }
-  return "";
 }
 
 // inscrease/descrease quantity on my cart page
@@ -221,7 +190,7 @@ clearIcon.forEach(btn => {
 	});
 });
 function removeItem(id) {
-	document.querySelector('div[data-cartitem-id="' + id +'"]').style.display = "none"
+	document.querySelector('div[data-cartitem-id="' + id +'"]').style.display = "none";
 	CART.remove(id);
 	if (CART.count() < 1) {
 		document.querySelector(".shopping-cart").innerHTML = 

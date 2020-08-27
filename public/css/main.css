@@ -303,7 +303,6 @@ body {
 /*Cart*/
 #minicart {
   position: relative;
-  cursor: pointer;
 }
 #cart-icon {
   padding: 3px 3px;
@@ -351,6 +350,9 @@ body {
 .cart-item:hover {
   background-color: #ddd;
 }
+.cart-item a:hover {
+  cursor: pointer;
+}
 .cart-item-image {
   flex: 0 0 49px;
 }
@@ -374,7 +376,26 @@ body {
 .cart-item-quantity {
   font-size: 10px;
 }
-
+.cart-item-currency , .cart-item-price {
+  align-self: center;
+}
+.mini-delete-btn {
+  flex: 0 0 15px;
+  height: 15px;
+  background-color: #eee;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+.mini-delete-btn:hover {
+  background-color: #ca5c5c;
+}
+.mini-delete-btn i {
+  font-size: 9px !important;
+}
 .total-price {
   font-weight: bold;
   font-size: 18px;
