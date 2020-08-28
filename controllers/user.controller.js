@@ -54,3 +54,7 @@ module.exports.myCart = async (req, res) => {
 module.exports.myOrder = async (req, res) => {
   res.render('user/order');
 }
+
+module.exports.myError = async (req, res) => {
+  res.render('error')
+}

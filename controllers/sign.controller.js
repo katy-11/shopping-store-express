@@ -63,3 +63,7 @@ module.exports.signout = (req, res) => {
   res.redirect("/");
 };
 
+module.exports.errorSign = (req, res) => {
+  res.render("error");
+};
+

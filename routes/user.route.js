@@ -15,4 +15,6 @@ Router.get("/cart", controller.myCart);
 
 Router.get("/order", controller.myOrder);
 
+Router.get("/:id", controller.myError);
+
 module.exports = Router;

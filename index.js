@@ -52,4 +52,6 @@ app.use("/search", authMiddleware.checkUser, searchRoute);
 app.use("/sign", authMiddleware.checkUser, signRoute);
 app.use("/user", authMiddleware.requireAuth, userRoute)
 
+app.get("/:id", authMiddleware.checkUser, categoryController.errorView);
+
 app.listen(port, () => console.log("Server listening at port 3000"));

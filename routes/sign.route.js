@@ -15,4 +15,6 @@ Router.post("/in", validate.postSignin, controller.postSignin);
 
 Router.get("/out", controller.signout);
 
+Router.get("/:id", controller.errorSign);
+
 module.exports = Router;

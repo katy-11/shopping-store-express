@@ -39,3 +39,7 @@ module.exports.contactView = (req, res) => {
   res.render("aboutUs");
 };
 
+module.exports.errorView = (req, res) => {
+  res.render("error");
+};
+
