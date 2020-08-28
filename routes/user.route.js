@@ -13,4 +13,6 @@ Router.post("/profile/:id",
 
 Router.get("/cart", controller.myCart);
 
+Router.get("/order", controller.myOrder);
+
 module.exports = Router;

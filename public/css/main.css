@@ -48,7 +48,22 @@ body {
   margin-left: 0px;
   margin-right: 0px;
 }
-
+.page-error {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 20px 30px;
+  font-size: 24px;
+  border: 1px solid #a79898;
+  box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.10);
+  border-radius: 7px;
+  background-color: #ccc;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+} 
 .container-fluid .pre-header1 {
   text-align: center;
   justify-content: center;
@@ -389,6 +404,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-left: 15px;
+  transition: 0.3s all;
 }
 .mini-delete-btn:hover {
   background-color: #ca5c5c;
@@ -568,7 +584,7 @@ body {
   height: 2px;
   width: 80%;
   background-color: rgb(66, 66, 66, 0.8);
-  margin: 24px auto;
+  margin: 74px  auto 24px;
 }
 .font-7 {
   font-family: "Ubuntu", sans-serif;

@@ -1,12 +1,11 @@
 var Product = require("../models/model.product");
 
 module.exports.search = async (req, res) => {
-  var q = req.query.q;
-  var matchedList = await Product.find(
+  let q = req.query.q;
+  let matchedList = await Product.find(
     { $text: { $search: q } },
     { score: { $meta: "textScore" } }
-  ).sort({ score: { $meta: "textScore" } });
-  // console.log(matchedList);
+  ).sort({ score: { $meta: "textScore" }});
   res.render("search/index", {
     itemList: matchedList,
   });

@@ -20,8 +20,9 @@ block content
 					.pd-desc-body= product.desc
 				.pd-colors
 					div Color: 
-						span Black
+						span= product.color
 					.custom-pd-color
-						.color-item.color-item-black
-						.color-item
+						each other in otherProducts
+							a( href=`/product/${other._id}`)
+								.color-item(class= `color-item-${other.color}`)
 				.add-to-bag

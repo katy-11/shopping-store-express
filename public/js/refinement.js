@@ -5,13 +5,24 @@ let apiUrl = '/api/refinement';
 
 try {
   categoryFil = document.querySelector(".refinement-header").textContent; 
-  if (categoryFil ===  "Sale") {
-    filter.sale = true;
-  } else if (categoryFil === "New Arrivals") {
-    // change to sorted products
-    apiUrl = '/api/refinement/sort';
-  } else {
-    filter.category = categoryFil;
+  //consider what category to filter
+  switch (categoryFil) {
+    case "Sale":
+      filter.sale = true;
+      break;
+    case "New Arrivals":
+      apiUrl = '/api/refinement/sort';
+      break;
+    case "Search":
+      const urlParams = new URLSearchParams(window.location.search);
+      const myParam = urlParams.get('q');
+      filter = {
+        $text: { $search: myParam }
+      }
+      apiUrl = '/api/refinement/search';
+      break;
+    default:
+      filter.category = categoryFil;
   }
 } catch (error) {
   console.log(error)
@@ -41,13 +52,13 @@ function createProductItem(item) {
 
   productItem.innerHTML = `
     <div class="product-carousel">
-      <a href="/tops/${item.id}">
+      <a href="/product/${item._id}">
         <img src=${item.imageUrl}>
       </a>
     </div>
     <div class="product-title-body">
-      <a class="product-title-name" href="/tops/${item.id}">${item.name}</a>
-         <a href="/tops/${item.id}"></a>
+      <a class="product-title-name" href="/product/${item._id}">${item.name}</a>
+         <a href="/product/${item._id}"></a>
       <div class="product-title-price">AU$${item.price}.00</div>
     </div>
     <div class="product-title-footer">
@@ -60,6 +71,12 @@ function createProductItem(item) {
 
 function renderFilter(filterProduct) {
   const row = document.getElementById("row");
+  if (filterProduct.length < 1) {
+    row.innerHTML = `
+      <div class="no-product col-11">No matched product</div>
+      `;
+    return;
+  }
   row.textContent = "";
   for (var i = 0; i < filterProduct.length; i++) {
     var yyy = createProductItem(filterProduct[i]);

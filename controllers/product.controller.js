@@ -3,11 +3,13 @@ var Product = require("../models/model.product");
 module.exports.viewProduct = async (req, res) => {
   let id = req.params.id;
   try {
-    var product = await Product.findOne({ _id: id });
+    let product = await Product.findOne({ _id: id });
+    let otherProducts = await Product.find({name: product.name});
     res.render("products/singleItem", {
       product: product,
       firstFour: product.imageItem[0].slice(0, 4),
       lastFour: product.imageItem[0].slice(4),
+      otherProducts: otherProducts,
     });
   } catch (error) {
     res.render('error');

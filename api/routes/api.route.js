@@ -14,6 +14,8 @@ Route.get("/product/database", productController.productDatabase);
 
 Route.post("/product", productController.productCreate);
 
+Route.post("/product/find", productController.productFind);
+
 Route.get("/product/:id", productController.productViewSingle);
 
 Route.put("/product/:id", productController.productUpdate);
@@ -37,8 +39,8 @@ Route.delete("/user/:id", userController.userDelete);
 Route.post("/sign/in", userController.userSigninCheck);
 
 //refinement
-
 Route.post("/refinement", refinementController.postFilterRefinement);
 Route.post("/refinement/sort", refinementController.postSortedRefinement);
+Route.post("/refinement/search", refinementController.postSearchRefinement);
 
 module.exports = Route;

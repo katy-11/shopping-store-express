@@ -53,12 +53,31 @@
 .color-item {
   height: 20px;
   width: 20px;
-  background-color: pink;
+  background-color: black;
   border-radius: 50%;
   border: 1px solid #fff;
   box-shadow: 0 0 0 2px #000;
   margin-right: 10px;
+  cursor: pointer;
 }
-.color-item-black {
+.color-item:hover {
+  transform: scale(1.2);
+}
+.color-item-Black {
   background-color: #000;
+}
+.color-item-White {
+  background-color: #fff;
+}
+.color-item-Orange {
+  background-color: orange;
+}
+.color-item-Pink {
+  background-color: pink;
+}
+.color-item-Blue {
+  background-color: blue;
+}
+.color-item-Grey {
+  background-color: grey;
 }

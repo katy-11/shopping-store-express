@@ -1,6 +1,4 @@
 .page-body {
-  /*-webkit-box-flex: 1;
-    -ms-flex: 1 0 auto;*/
   display: flex;
   border-top: 1px solid #eee;
   margin-top: 5px;
@@ -34,6 +32,11 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: 0.3 all;
+  transform: scale(1);
+}
+.refinement-clear:hover {
+  transform: scale(1.2)
 }
 .refinement-clear-text {
   font-size: 10px;
@@ -56,7 +59,6 @@
   font-size: 12px;
   margin-bottom: 5px;
 }
-
 .custom-checkbox input {
   height: 15px;
   width: 15px;
@@ -64,10 +66,28 @@
 .custom-checkbox label {
   padding-left: 20px;
 }
-
+.custom-checkbox label:hover {
+  color: #000;
+}
 /*Start product-showroom*/
+.no-product {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 0 auto;
+  font-size: 30px;
+  border: 1px solid #a79898;
+  box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.10);
+  border-radius: 7px;
+  background-color: #ccc9;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
 .product-showroom {
-  /*flex-grow: 1;*/
+  flex-grow: 1;
 }
 .product-wrapper {
   margin-top: 40px;
@@ -93,4 +113,19 @@
 }
 .product-item:hover .product-title-footer {
   visibility: visible;
+}
+
+/*contact us*/
+.about-page {
+  display: flex;
+  border-top: 1px solid #eee;
+  margin-top: 5px;
+  padding-top: 50px;
+}
+.about-page h1 {
+  font-weight: bold;
+}
+.about-page .span-bold {
+  font-weight: bold;
+  font-size: 18px;
 }

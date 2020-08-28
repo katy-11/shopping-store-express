@@ -76,6 +76,23 @@ paths:
               $ref: "#/components/schemas/Clothes"
         description: Created user object
         required: true
+  /api/product/find:
+    post:
+      tags:
+        - product
+      summary: Find all matched product from query
+      description: Return all matched json products
+      operationId: finProduct
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Clothes"
+        description: Created user object
+        required: true
   /api/product/{id}:
     get:
       tags:

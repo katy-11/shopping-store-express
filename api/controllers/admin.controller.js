@@ -1,11 +1,4 @@
-var Product = require("../models/model.product");
-
-module.exports.index = async (req, res) => {
-  var products = await Product.find();
-  res.render("admin/index", {
-    products: products,
-  });
-};
+var Product = require("../../models/model.product");
 
 module.exports.create = async (req, res) => {
   var products = await Product.find();

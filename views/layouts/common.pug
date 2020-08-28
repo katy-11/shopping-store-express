@@ -38,8 +38,8 @@ head
           li.menu-bar-item BOTTOMS
         a(href='/sales')
           li.menu-bar-item SALES
-        a(href='/admin/create')
-          li.menu-bar-item CONTACT US
+        a(href='/about-us')
+          li.menu-bar-item ABOUT US
     .profile-bar
       form(action="/search" method="GET")
         input.mr-3.search-btn(type='search', name='q', placeholder='Search' , value=values ? values.name : "")
@@ -124,21 +124,21 @@ block content
           label.font-7.label-bottom HELP
           .menu-bar
             ul.menu-list-bottom.flex-column
-              a(href='#')
+              a(href='/about-us')
                 li.menu-item-bottom SHIPPING AND RETURN
-              a(href='#')
+              a(href='/about-us')
                 li.menu-item-bottom PAYMENT METHOD
-              a(href='#')
+              a(href='/about-us')
                 li.menu-item-bottom ASK QUESTION
         .col-sm-12.col-lg-3
           label.font-7.label-bottom CONTACT
           .menu-bar
             ul.menu-list-bottom.flex-column
-              a(href='#')
+              a(href='tel:+61404888888')
                 li.menu-item-bottom 123-456-7890
-              a(href='#')
+              a(href='mailto:10hohuyen1114@gmail.com')
                 li.menu-item-bottom HOHUYEN1114@GMAIL.COM
-              a(href='/contact')
+              a(href='/about-us')
                 li.menu-item-bottom MORE INFO
         .col-sm-12.col-lg-4
           label.font-7.label-bottom NEWS LETTER
@@ -154,3 +154,4 @@ script(src="/js/auth.client.js")
 script(src="/js/refinement.js")
 script(src="/js/sign.js")
 script(src="/js/user.js")
+script(src="/js/otherColor.js")

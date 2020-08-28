@@ -9,8 +9,8 @@ block content
             a(href="/user/profile")
               li My details
             a(href="/user/cart")
-              li.active My cart
-            a(href="/user/order")
+              li My cart
+            a.active(href="/user/order")
               li My order
             a(href="/sign/out" id="sign-out")
               li Log out
@@ -18,7 +18,7 @@ block content
         .user-my-cart
           h1 My cart
           .shopping-cart
-            if user.cart.length > 0
+            if user.order.length > 0
               each cartItem in user.cart
                 .item(data-id= cartItem.id, data-cartitem-id= cartItem.id)
                   .image
@@ -41,10 +41,8 @@ block content
                   .des-name Total price:
                   .des-color.des-total= user.cart.length + " items"
                 .price-price $1000
-              a(href="")
-                .check-out Checkout
             else
-              .item-nothing Nothing on the cart yet
+              .item-nothing You have not ordered yet
 
                     
                   

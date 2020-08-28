@@ -46,7 +46,11 @@ module.exports.postProfile = async (req, res) => {
 		res.redirect('/user/profile');
 	}
 };
+
 module.exports.myCart = async (req, res) => {
   res.render('user/cart');
 }
 
+module.exports.myOrder = async (req, res) => {
+  res.render('user/order');
+}

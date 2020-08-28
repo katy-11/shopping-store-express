@@ -14,6 +14,11 @@ module.exports.productCreate = async (req, res) => {
   res.json(product);
 };
 
+module.exports.productFind = async (req, res) => {
+  var product = await Product.find(req.body);
+  res.json(product);
+};
+
 module.exports.productViewSingle = async (req, res) => {
   try {
     var product = await Product.findOne({ _id: req.params.id });

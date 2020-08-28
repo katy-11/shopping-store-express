@@ -3,45 +3,45 @@ function totalPriceDiv() {
   totalPrice.classList.add("cart-item", "total-price");
   totalPrice.innerHTML = `
     <div class="cart-item-body cart-total-name">
-          <div class="cart-item-name">Total price:</div>
-          <div class="cart-item-quantity cart-total-quantity"></div>
-      </div>
-      <div class="cart-item-currency">$</div>
-      <div class="cart-price"></div>
+      <div class="cart-item-name">Total price:</div>
+      <div class="cart-item-quantity cart-total-quantity"></div>
+    </div>
+    <div class="cart-item-currency">$</div>
+    <div class="cart-price"></div>
     `;
   return totalPrice;
 }
 
 function cartItemDiv() {
   for (var productDetail of CART.contents) {
-        const cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
-        cartItem.setAttribute("data-uuid-item", productDetail.id);
-        cartItem.innerHTML = `
-          <div class="cart-item-image">
-            <a href="/tops/${productDetail.id}">
-              <img src="${productDetail.imageUrl}" />
-            </a>
-          </div>
-          <div class="cart-item-body">
-            <div class="cart-item-name">
-              <a href="/tops/${productDetail.id}">${productDetail.name}
-              </a>
-            </div>
-            <div class="cart-item-quantity" data-uuid=${productDetail.id}>
-              Quantity: ${productDetail.quantity}
-            </div>
-          </div>
-          <div class="cart-item-currency">$</div>
-          <div id="cartItemPrice" class="cart-item-price">${productDetail.price}</div>
-          <div class="mini-delete-btn" 
-              data-uuid=${productDetail.id} 
-              onClick="miniDelete(event)">
-            <i class="fas fa-times mini-delete-icon" data-uuid=${productDetail.id}></i>
-          </div>
-        `;
-        cart.appendChild(cartItem);
-     }
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+    cartItem.setAttribute("data-uuid-item", productDetail.id);
+    cartItem.innerHTML = `
+      <div class="cart-item-image">
+        <a href="/tops/${productDetail.id}">
+          <img src="${productDetail.imageUrl}" />
+        </a>
+      </div>
+      <div class="cart-item-body">
+        <div class="cart-item-name">
+          <a href="/tops/${productDetail.id}">${productDetail.name}
+          </a>
+        </div>
+        <div class="cart-item-quantity" data-uuid=${productDetail.id}>
+          Quantity: ${productDetail.quantity}
+        </div>
+      </div>
+      <div class="cart-item-currency">$</div>
+      <div id="cartItemPrice" class="cart-item-price">${productDetail.price}</div>
+      <div class="mini-delete-btn" 
+          data-uuid=${productDetail.id} 
+          onClick="miniDelete(event)">
+        <i class="fas fa-times mini-delete-icon" data-uuid=${productDetail.id}></i>
+      </div>
+    `;
+    cart.appendChild(cartItem);
+  }
 }
 function miniDelete(event) {
   let id = event.target.dataset.uuid;
@@ -106,6 +106,7 @@ function showCart() {
     cart.appendChild(totalPrice);
     document.querySelector(".total-price").textContent =
       "Nothing on the cart yet";
+    a = true;
     return;
   }
 
@@ -191,7 +192,6 @@ window.addEventListener("click", (event) => outsideClick1(event));
 
 // when adding item to cart
 addToCartBtn.forEach((btn) => {
-  console.log(1111)
   btn.addEventListener("click", (event) => addToCart(event));
 });
 

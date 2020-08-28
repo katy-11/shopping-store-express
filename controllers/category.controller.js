@@ -35,3 +35,7 @@ module.exports.saleView = async (req, res) => {
   });
 };
 
+module.exports.contactView = (req, res) => {
+  res.render("aboutUs");
+};
+

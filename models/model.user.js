@@ -12,7 +12,8 @@ var userSchema = new mongoose.Schema({
   	type: String,
   	default: "https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/avatar/2020-08-18T14:11:08.490Z"
   },
-  cart: Array
+  cart: Array,
+  order: Array,
 });
 
 var User = mongoose.model("User", userSchema, "users");

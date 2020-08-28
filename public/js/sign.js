@@ -36,7 +36,6 @@ try {
   const userOption = document.getElementById('user-option');
 
   userAccount.addEventListener('click', (event) => {
-    event.stopPropagation();
 
     //if other toggle are open, then close that first
     if (a === true) {
@@ -46,6 +45,7 @@ try {
     }
 
     let userToggle = userOption.classList.toggle("user-option-clicked");
+    event.stopPropagation();
 
     // create element inside userOption or clear them
     if (userToggle) {
