@@ -75,17 +75,15 @@ block content
 				.product-wrapper
 					#row.row
 						if itemList.length > 0
-							each item in itemList
-								.product-item.col-4(data-page-number="0" data-product-details={"id": item._id, "name": item.name, "price": item.price, "imageUrl": item.imageUrl, "color": item.color})
+							each product in itemList
+								.product-item.col-4(data-page-number="0" data-product-details={"id": product._id, "name": product.name, "price": product.price, "imageUrl": product.imageUrl, "color": product.color})
 									.product-carousel
-										a(href="/product/" + item.id)
-											img(src=item.imageUrl)
-									.product-title-body
-										a(href="/product/" + item.id, class= "product-title-name")= item.name
-											a(href="/product/" + item.id)
-										.product-title-price= "AU$" + item.price + ".00"
-									.product-title-footer
-										.product-title-color
+										a(href="/product/" + product.id)
+											img(src=product.imageUrl)
 										.add-to-cart Add to bag
+									.product-title-body
+										a(href="/product/" + product.id, class= "product-title-name")= product.name
+											a(href="/product/" + product.id)
+										.product-title-price= "AU$" + product.price + ".00"
 						else
 							.no-product.col-11 No matched product

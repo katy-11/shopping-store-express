@@ -29,7 +29,7 @@
 }
 .pd-desc {
   font-size: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .pd-desc-title {
   font-size: 16px;
@@ -48,7 +48,27 @@
   display: flex;
   flex-direction: row;
   padding-left: 10px;
-  padding-top: 5px;
+  padding-top: 10px;
+}
+.product-bag {
+  margin-top: 40px;
+  border: 1px solid #ddd;
+  background-color: #333030;
+  height: 60px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s all;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+}
+.product-bag:hover {
+  background-color: #333030d9;
 }
 .color-item {
   height: 20px;
@@ -76,7 +96,7 @@
   background-color: pink;
 }
 .color-item-Blue {
-  background-color: blue;
+  background-color: #577fff;
 }
 .color-item-Grey {
   background-color: grey;

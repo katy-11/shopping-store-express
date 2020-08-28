@@ -83,12 +83,12 @@ block content
 								.product-carousel
 									a(href="/product/" + product.id)
 										img(src=product.imageUrl)
+									.add-to-cart Add to bag
 								.product-title-body
 									a(href="/product/" + product.id, class= "product-title-name")= product.name
 										a(href="/product/" + product.id)
 									.product-title-price= "AU$" + product.price + ".00"
-								.product-title-footer
-									.product-title-color
-									.add-to-cart Add to bag
+								//- .product-title-footer
+						//- .no-product.col-11 No matched product
 
 						

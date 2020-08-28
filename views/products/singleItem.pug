@@ -12,7 +12,7 @@ block content
 						each last in lastFour
 							.col-lg-3.image-item
 								img(class="img-fluid", src= last)
-			.product-detail
+			.product-detail(data-product-details={"id": product._id, "name": product.name, "price": product.price, "imageUrl": product.imageUrl, "color": product.color})
 				h1.pd-title= product.name
 				h2.pd-price= "AU$" + product.price + ".00"
 				.pd-desc
@@ -25,4 +25,5 @@ block content
 						each other in otherProducts
 							a( href=`/product/${other._id}`)
 								.color-item(class= `color-item-${other.color}`)
-				.add-to-bag
+				.pd-bag
+					.product-bag Add to bag 

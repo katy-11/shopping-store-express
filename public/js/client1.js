@@ -180,6 +180,7 @@ let a = false;
 const cartIcon = document.getElementById("cart-icon");
 const cart = document.getElementById("cart");
 const addToCartBtn = document.querySelectorAll(".add-to-cart");
+const productBagBtn = document.querySelector(".product-bag");
 
 // when the page is ready
 document.addEventListener("DOMContentLoaded", () => cartPageReady());
@@ -194,6 +195,8 @@ window.addEventListener("click", (event) => outsideClick1(event));
 addToCartBtn.forEach((btn) => {
   btn.addEventListener("click", (event) => addToCart(event));
 });
+// addingg item on product detail page
+productBagBtn.addEventListener("click", (event) => addToCart(event));
 
 
 
