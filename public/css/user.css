@@ -1,6 +1,7 @@
 .user-options-wrapper {
  	margin-top: 20px;
   	flex: 0 0 230px;
+  	display: none;
 }
 .user-details-wrapper {
 	display: flex;
@@ -34,8 +35,11 @@
 .user-details-wrapper {
 	margin-top: 20px;
 }
-.user-details, .user-my-cart {
-	margin: 0 40px;
+.user-details {
+	margin: 0 20px;
+}
+.user-my-cart {
+	margin: 0 10px;
 }
 .user-details .input-label {
 	color: #424242;
@@ -54,6 +58,7 @@
 .user-details-wrapper h1 {
 	font-weight: bold;
 	letter-spacing: 2;
+	margin-bottom: 20px;
 }
 .user-details button {
 	padding: 10px 15px;
@@ -61,7 +66,7 @@
 	border: 0;
 	color: #fff;
 	border-radius: 4px;
-	background: #4a504a;
+	background: #4a504a91;
 	font-size: 18px;
 	letter-spacing: 1.5;
 	transition: 0.3s;
@@ -88,13 +93,19 @@
 }
 
 .item .image {
-	flex: 0 0 20%;
+	flex: 0 0 70px;
 	text-align: center;
 }
 .item img {
 	width: 100px;
 	height: 100px;
 	object-fit: cover;
+}
+.des-body {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	margin: 0 10px;
 }
  .description {
 	display: flex;
@@ -103,20 +114,23 @@
   	flex-grow: 1;
   	margin: 10px 0;
 }
+.des-body .description{
+	margin: 0px 0px 10px;
+}
 .description .des-name {
-	font-size: 18px;
-	line-height: 1.5;
+	font-size: 14px;
+	line-height: 1.2;
 }
 .description .des-name:hover {
 	text-decoration: underline;
 }
-
 .description .des-color {
+	font-size: 14px;
 	opacity: 0.7;
 }
 .quantity {
 	flex: 0 0 20%;
-	align-self: center;
+	align-self: flex-start;
 }
 .quantity .quantity-span {
 	display: inline-block;
@@ -129,8 +143,8 @@
 }
 
 .plus-btn, .minus-btn {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	background-color: #e1e8ee;
 	border-radius: 5px;
 	border: none;
@@ -145,7 +159,7 @@
 }
 .item .price {
 	font-size: 18px;
-	flex: 0 0 10%;
+	flex: 0 0 30px;
 	align-self: center;
 }
 .delete-button {
@@ -187,16 +201,15 @@
 	align-self: center;
 }
 .check-out {
-	height: 70px;
-	width: 30%;
+	height: 50px;
+	width: 40%;
 	background-color: #87B37A;
 	border-radius: 10px;
 	margin: 30px auto;
-	/*margin-top: 30px;*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 28px;
+	font-size: 18px;
 	color: white;
 	letter-spacing: 2px;
 	font-weight: bold;

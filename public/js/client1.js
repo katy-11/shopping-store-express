@@ -25,7 +25,7 @@ function cartItemDiv() {
       </div>
       <div class="cart-item-body">
         <div class="cart-item-name">
-          <a href="/tops/${productDetail.id}">${productDetail.name}
+          <a href="/product/${productDetail.id}">${productDetail.name}
           </a>
         </div>
         <div class="cart-item-quantity" data-uuid=${productDetail.id}>

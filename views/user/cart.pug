@@ -24,14 +24,15 @@ block content
                   .image
                     a(href= "/product/" + cartItem.id)
                       img(src= cartItem.imageUrl, alt='')
-                  .description
-                    .des-name
-                      a(href= "/product/" + cartItem.id)= cartItem.name
-                    .des-color= cartItem.color
-                  .quantity
-                    button.plus-btn(data-id= cartItem.id, type='button', name='button') +
-                    div.quantity-span= cartItem.quantity
-                    button.minus-btn(data-id= cartItem.id, type='button', name='button') -
+                  .des-body
+                    .description
+                      .des-name
+                        a(href= "/product/" + cartItem.id)= cartItem.name
+                      .des-color= cartItem.color
+                    .quantity
+                      button.plus-btn(data-id= cartItem.id, type='button', name='button') +
+                      div.quantity-span= cartItem.quantity
+                      button.minus-btn(data-id= cartItem.id, type='button', name='button') -
                   .price= "$" + cartItem.price
                   .delete-button
                     i(class="fas fa-times cart-clear-icon refinement-clear-icon")
