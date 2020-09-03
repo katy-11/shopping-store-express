@@ -1,28 +1,27 @@
 extends ../layouts/common
 
 block content
-    .signup-page
-        .signin-container.signup-container
-            .signin-left
-              h1.signin-title Sign up form
-              p.signin-desc Explore all the benefits. <br> View your purchase and return history
-              form(action="/sign/up" onSubmit="return checkAuth2()" method="POST")
-                div(class= "input-block")
-                  label.input-label(for='email') Email
-                  input#email(type='', name='email', placeholder='Email')
-                div(class= "input-block")
-                  label.input-label(for='password') Password
-                  input#password(type='password', name='password', placeholder='Password')
-                div(class= "input-block")
-                  label.input-label(for='name') Full name
-                  input#name(type='name', name='name', placeholder='Your full name')
-                div(class= "input-block")
-                  label.input-label(for='phone') Phone number
-                  input#phone(type='phone', name='phone', placeholder='Your phone number')
-                #error-message
-                .signin-buttons
-                  a(href='')
-                  button.login-button Sign up
-            .signin-right
-              img(src='/images/banner-phone.jpg')
-              
+  .signup-page
+    .signin-container.signup-container
+      .signin-left
+        h1.signin-title Sign up form
+        p.signin-desc Explore all the benefits. <br> View your purchase and return history
+        form(action="/sign/up" onSubmit="return checkAuth2()" method="POST")
+          div(class= "input-block")
+            label.input-label(for='email') Email
+            input#email(type='', name='email', placeholder='Email')
+          div(class= "input-block")
+            label.input-label(for='password') Password
+            input#password(type='password', name='password', placeholder='Password')
+          div(class= "input-block")
+            label.input-label(for='name') Full name
+            input#name(type='name', name='name', placeholder='Your full name')
+          div(class= "input-block")
+            label.input-label(for='phone') Phone number
+            input#phone(type='phone', name='phone', placeholder='Your phone number')
+          #error-message
+          .signin-buttons
+            a(href='')
+            button.login-button Sign up
+      .signin-right
+        img(src='/images/banner-phone.jpg')

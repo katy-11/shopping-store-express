@@ -2,6 +2,7 @@
 let categoryFil;
 let filter = {};
 let apiUrl = '/api/refinement';
+let pBox = false;
 
 try {
   categoryFil = document.querySelector(".refinement-header").textContent; 
@@ -40,15 +41,15 @@ async function checkFilter(sorted) {
 
 function createProductItem(item) {
   var productItem = document.createElement("div");
-  productItem.classList.add("col-4");
+  productItem.classList.add("col-6", "col-md-4", "product-item");
   productItem.setAttribute("data-page-number", "0");
   productItem.setAttribute("data-product-details", 
-    {
+    JSON.stringify({
       "id": item._id, 
       "name": item.name, 
       "price": item.price, 
       "imageUrl": item.imageUrl
-  });
+  }));
 
   productItem.innerHTML = `
     <div class="product-carousel">
@@ -154,12 +155,32 @@ function clearFilter() {
     cb.checked = false
   });
 }
+
+// phone refinement
+function openRefinement(className) {
+  event.stopPropagation();
+  if (document.querySelector(className).style.display === "block") {
+    document.querySelector(className).style.display = "none";
+    pBox = false;
+    return;
+  }
+  if (pBox) {
+    document.querySelector('.refinement-1').style.display = "none";
+    document.querySelector('.refinement-2').style.display = "none";
+    document.querySelector('.refinement-3').style.display = "none";
+  }
+  document.querySelector(className).style.display = "block";
+  pBox = true;
+}
 // eventListener
 const input1 = document.querySelectorAll('input[data-ref="typeGroup"]');
 const input2 = document.querySelectorAll('input[data-ref="colorGroup"]');
 const input3 = document.querySelectorAll('input[data-ref="priceGroup"]');
 const categoryG = document.querySelectorAll('input[data-ref="categoryGroup"]');
 const clearInput = document.querySelectorAll('.refinement-clear');
+const pType = document.querySelector('.phone-type');
+const pColor = document.querySelector('.phone-color');
+const pPrice = document.querySelector('.phone-price');
 
 input1.forEach((cb) => {
   cb.addEventListener("change", () => {
@@ -195,3 +216,18 @@ clearInput.forEach((cb) => {
     checkFilter();
   });
 });
+try {
+  pType.addEventListener('click', () => {
+    openRefinement('.refinement-1')
+  })
+
+  pColor.addEventListener('click', () => {
+    openRefinement('.refinement-2')
+  })
+
+  pPrice.addEventListener('click', () => {
+    openRefinement('.refinement-3')
+  })
+} catch (error) {
+  console.log(error)
+}

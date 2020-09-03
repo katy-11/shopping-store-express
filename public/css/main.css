@@ -27,7 +27,10 @@ html,
 body {
   font-family: "Questrial", sans-serif;
 }
-
+.container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .font-15 {
   font-family: "Ubuntu", sans-serif;
   font-size: 28px;
@@ -54,7 +57,7 @@ body {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  margin: 20px 30px;
+  margin: 30px 30px 0;
   font-size: 24px;
   border: 1px solid #a79898;
   box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.10);
@@ -64,7 +67,10 @@ body {
   text-transform: uppercase;
   letter-spacing: 1.5px;
 } 
-.container-fluid .pre-header1 {
+.free-ship {
+  display: none;
+}
+.pre-header1 {
   text-align: center;
   justify-content: center;
   padding: 8px 0;
@@ -73,35 +79,78 @@ body {
   letter-spacing: 3px;
   font-size: 15px;
 }
-.container .row .logo-img {
-  margin: 25px 0;
+
+/*Hambuger-menu*/
+.header {
+  padding: 17px 10px;
 }
 .header-menu {
   display: flex;
-  justify-content: space-between;
-  height: 50px;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
-.container .menu-bar-list {
-  list-style: none;
-  display: flex;
-  padding-left: 0;
+.logo-div {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.container .menu-bar-list a {
+.logo-div img {
+  height: 40px;
+}
+.check-hamburger i {
+  font-size: 26px !important;
+}
+.menu-bar {
+  display: none;
+}
+.menu-bar-list a {
   text-decoration: none;
   color: #444;
-  padding: 10px;
 }
-.container .menu-bar-list li {
-  font-size: 15px;
+.phone-menu-bar-modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 100%;
+  z-index: 1;
+  list-style: none;
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid #ddd;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.6s all;
+  /*transform: translateX(100%);*/
 }
-.container .menu-bar-list a:hover {
-  background-color: #ddd;
+.phone-menu-bar-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  background-color: white;
 }
+.phone-search-btn {
+  width: 100%;
+  border: none;
+  background-color: #8f968b4d;
+  height: 40px;
+  outline: none;
+  margin-top: 20px;
+  padding: 15px;
+}
+.phone-menu-bar-container li {
+  border-bottom: 1px solid #DDD;
+  padding: 15px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+.phone-menu-bar-container li i {
+  color: #888;
+}
+/**/
 
-.container .menu-bar-item {
-  padding: 0 10px;
-}
 .header-menu .profile-bar { 
   display: flex;
   align-items: center;
@@ -113,37 +162,31 @@ body {
 .header-menu .profile-bar .small-icon {
   font-size: 15px;
 }
-.search-btn {
-  border: 1px solid grey;
-  background-color: #8f968b4d;
-  border-radius: 20px;
-  height: 40px;
-  outline: none;
+.desktop-search-btn {
+  display: none;
 }
 .fa-minus {
   opacity: 0.7;
-  font-size: 22px !important;
+  font-size: 18px !important;
   transform: rotate(90deg);
 }
 .sign-in {
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
 }
-
 /*Sign in modal*/
 .signin-modal {
   display: none;
   position: fixed;
   z-index: 1;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 90px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgb(0, 0, 0, 0.6);
 }
 .signup-page {
   display: block;
@@ -151,13 +194,11 @@ body {
 .signin-container {
   display: flex;
   margin: auto;
-  width: 60%;
-  /*height: 90%;*/
+  width: 85%;
   border-radius: 10px;
   overflow: hidden;
   transition-duration: 0.3s;
   background: #fff;
-  /*transform: translateY(100px) scale(0.4);*/
 }
 .signup-container {
   border: 1px solid rgba(0, 0, 0, 0.6);
@@ -166,13 +207,12 @@ body {
   margin-top: 50px;
 }
 .signin-left {
-  padding: 60px 30px 20px;
+  padding: 30px 20px 20px;
   background: #fff;
-  flex: 0 0 50%;
-  /*opacity: 0;*/
+  flex: 0 0 100%;
 }
-
 .signin-right {
+  display: none;
   flex-grow: 1;
   position: relative;
 }
@@ -211,7 +251,6 @@ body {
 }
 .input-block input::placeholder {
   color: #ccc;
-  /*opacity: 1;*/
 }
 .input-block:focus-within {
   border-color: #8c7569;
@@ -225,7 +264,6 @@ body {
   font-weight: 600;
   letter-spacing: 0.7px;
   color: #8c7569;
-  /*transition: 0.3s;*/
 }
 .signin-buttons {
   display: flex;
@@ -251,7 +289,7 @@ body {
   background: #55311c;
 }
 .signup {
-  margin: 60px 0 0;
+  margin: 40px 0 0;
   font-size: 14px;
   text-align: center;
 }
@@ -320,12 +358,13 @@ body {
   position: relative;
 }
 #cart-icon {
-  padding: 3px 3px;
+  padding: 0;
+  font-size: 24px;
 }
 .cart {
   position: absolute;
-  top: 110%;
-  right: 0%;
+  top: 160%;
+  right: -50%;
   visibility: hidden;
   border: 1px solid #ddd;
   background-color: #fff;
@@ -342,7 +381,7 @@ body {
   transform: translateX(0%);
 }
 .cartCount {
-  font-size: 14px;
+  font-size: 10px;
   color: #fff;
   position: absolute;
   left: 50%;
@@ -422,42 +461,43 @@ body {
 /*Description banner*/
 
 .banner {
-  background-image: url("/images/banner.jpg");
-  height: 390px;
-  background-size: cover;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  background-image: url("/images/banner-phone.jpg");
+  height: 70vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .banner-body {
   position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40%;
   text-align: center;
+  right: 50%;
+  top: 5%;
+  transform: translateX(50%);
+  width: 80%;
 }
 .banner-body h1 {
   font-family: "Ubuntu", sans-serif;
-  font-size: 35px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 4px;
   line-height: normal;
 }
 .banner-body h2 {
-  font-size: 120px;
+  font-size: 80px;
   font-weight: 600;
   letter-spacing: 3px;
 }
 .banner-body p {
-  font-size: 24px;
+  font-size: 16px;
   font-family: "Questrial", sans-serif;
   letter-spacing: 3px;
 }
 .banner-body a {
   background-color: #8e5d54;
   color: white;
-  font-size: 15px;
-  padding: 15px 12px;
+  font-size: 14px;
+  padding: 12px 10px;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -500,17 +540,18 @@ body {
 
 /*Start divider*/
 .divider {
+  width: 72%;
+  margin: 40px auto 10px;
   height: 1px;
-  width: 900px;
   background-color: rgba(0, 0, 0, 0.2);
-  margin: 90px auto;
+ 
 }
 
 /*Start Trending now*/
 .home-header {
   text-align: center;
   color: #576855;
-  margin: 50px auto 40px;
+  margin: 20px auto 40px;
 }
 .font-11 {
   font-family: "Ubuntu", sans-serif;
@@ -524,23 +565,30 @@ body {
 }
 .trending-list .image {
   background-size: cover;
-  height: 300px;
+  height: 160px;
   background-repeat: no-repeat;
   margin-bottom: 10px;
+  background-position: center;
 }
 .trending-list .image-4 {
-  background-image: url("/images/trending-4.jpg");
+  background-image: url("https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-08T18:43:37.379Z");
 }
 .trending-list .image-5 {
-  background-image: url("/images/trending-5.jpg");
+  background-image: url("https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-11T12:40:30.453Z");
 }
 .trending-list .image-6 {
-  background-image: url("/images/trending-6.jpg");
+  background-image: url("/images/trending-5.jpg");
 }
 .trending-list .image-7 {
-  background-image: url("/images/trending-7.jpg");
+  background-image: url("/images/trending-6.jpg");
 }
-
+.trending-item {
+  font-size: 14px;
+}
+/*Most-view*/
+.view-item {
+  margin-bottom: 30px;
+}
 /*Show more and separate line*/
 /*.container .button-shop {
     position: relative;
@@ -561,24 +609,7 @@ body {
     background-color: #424242;
     color: white;
 }*/
-/*.separate-line {
-    width: 100%;
-    height: 85px;
-    text-align: center;
-    font-size: 50px;
-    position: relative;
-}
 
-.separate-line:before {
-    content: '';
-    width: 100%;
-    margin: -20px 0;
-    border-bottom: solid 3px rgb(66, 66, 66, 0.8);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    z-index: 1;
-}*/
 /*Start footer*/
 .seperate-line {
   height: 2px;

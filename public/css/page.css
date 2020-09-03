@@ -1,22 +1,48 @@
+.container-whole {
+  padding-right: 10px;
+  padding-left: 10px;
+}
 .page-body {
   display: flex;
+  flex-direction: column;
   border-top: 1px solid #eee;
   margin-top: 5px;
 }
+.phone-refinement {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px 0 0px;
+}
+.phone-refinement > div:hover span {
+	color: #888;
+}
+.phone-refinement span {
+  font-size: 14px;
+	font-weight: bold;
+	margin-right: 7px;
+}
+.phone-refinement i {
+	font-size: 10px;
+	color: #888;
+}
 
 .refinement-bar {
-  margin-top: 20px;
-  flex: 0 0 230px;
-  /*flex-basis: 230px;*/
-  /*original flex-basic: 230px but after put .row in product-showroom, it minimizes smaller to 100px
-	so it has to be 530px to minimize to 230px*/
+	position: relative;
 }
 .refinement-card {
+	display: none;
+	top: 20px;
   margin-bottom: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
+	position: absolute;
+	right: 50%;
+	transform: translateX(50%);
+	background-color: #fff;
+	z-index: 1;
+	width: 98%;
 }
-
 .refinement-heading {
   display: flex;
   justify-content: space-between;
@@ -60,7 +86,6 @@
   margin-bottom: 5px;
 }
 .custom-checkbox input {
-  height: 15px;
   width: 15px;
 }
 .custom-checkbox label {
@@ -85,8 +110,10 @@
   box-sizing: border-box;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  text-align: center;
 }
 .product-showroom {
+  overflow: hidden;
   flex-grow: 1;
 }
 .product-wrapper {
@@ -103,6 +130,7 @@
   transition: all 500ms;
   max-width: 100%;
 }
+
 .add-to-cart {
   position: absolute;
   width: 100%;
@@ -116,28 +144,24 @@
   transition: all 500ms;
   visibility: hidden;
 }
-.add-to-cart:hover {
-  background-color: #aba7a7;
-}
 .product-item {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.product-item:hover .add-to-cart {
-  visibility: visible;
-  transform: translateY(-100%);
-}
-.product-item:hover .product-carousel img {
-  transform: scale(1.3) translateY(-10%);
+  padding-right: 5px;
+  padding-left: 5px;
 }
 .product-title-body {
   margin-bottom: 30px;
-  margin-top: 15px;
+  margin-top: 10px;
+}
+.product-title-name {
+  font-size: 12px;
 }
 .product-title-price {
   color: #847a7a;
+  font-size: 12px;
 }
 
 /*contact us*/
@@ -149,6 +173,7 @@
 }
 .about-page h1 {
   font-weight: bold;
+  margin-top: 30px;
 }
 .about-page .span-bold {
   font-weight: bold;

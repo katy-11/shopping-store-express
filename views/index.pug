@@ -2,43 +2,57 @@ extends ./layouts/common
 
 block content
   .container.banner
-      .banner-body
-          h1 New arrivals
-          h2 SALE
-          p Up to 50% off
-          a(href="/sales") Shop now
+    .banner-body
+      h1 New arrivals
+      h2 SALE
+      p Up to 50% off
+      a(href="/sales") Shop now
   .container.home-categories-list
-      .row
-          .col-sm-12.col-lg-4.home-categories-item
-              .image.image-1
-              h3.font-10 New arrivals
-              p Set yourself up for sartorial success <br> with latest bags, shoes and accessories
-          .col-sm-12.col-lg-4.home-categories-item
-              .image.image-2
-              h3.font-10 Best-sellings
-              p Must-haves for the season
-          .col-sm-12.col-lg-4.home-categories-item
-              .image.image-3
-              h3.font-10 Big sale
-              p Set yourself up for sartorial success <br> with latest bags, shoes and accessories
+    .row
+      .col-sm-12.col-lg-4.home-categories-item
+        a(href="/new-arrivals")
+          .image.image-1
+          h3.font-10 New arrivals
+          p Set yourself up for sartorial success <br> with latest bags, shoes and accessories
+      .col-sm-12.col-lg-4.home-categories-item
+        a(href="/new-arrivals")
+          .image.image-2
+          h3.font-10 Best sellings
+          p Must-haves for the season
+      .col-sm-12.col-lg-4.home-categories-item
+        a(href="/sales")
+          .image.image-3
+          h3.font-10 Big sale
+          p Set yourself up for sartorial success <br> with latest bags, shoes and accessories
   //- Start divider 
   .divider
   //- Start Trending
   .container.home-header.font-11 Trending now
   .container.trending-list
-      .row
-          .col-sm-12.col-lg-3.trending-item
-              .image.image-4
-              p Buckle Strap Croc-Effect Bag
-          .col-sm-12.col-lg-3.trending-item
-              .image.image-5
-              p Front Buckle Slingback Mules
-          .col-sm-12.col-lg-3.trending-item
-              .image.image-6
-              p Geometric Tote Bag
-          .col-sm-12.col-lg-3.trending-item
-              .image.image-7
-              p Metal Frame Sunglasses
+    .row
+      .col-6.col-md-4.col-lg-3.trending-item
+        a(href="/product/5f181c433861bb3a5c4d5ed5")
+          .image.image-4
+          p Buckle Strap Croc-Effect Bag
+      .col-6.col-md-4.col-lg-3.trending-item
+        a(href="/product/5f3291bee0fe9107b8c9f904")
+          .image.image-5
+          p Textured Double Zip Backpack
+      .col-6.col-md-4.col-lg-3.trending-item
+        a(href="/product/5f3291bee0fe9107b8c9f904")
+          .image.image-6
+          p Geometric Tote Bag
+      .col-6.col-md-4.col-lg-3.trending-item
+        a(href="/product/5f3291bee0fe9107b8c9f904")
+          .image.image-7
+          p Metal Frame Sunglasses
   //- Start Most viewed
   .divider
   .container.home-header.font-11 Most-viewed
+  .container.most-viewed
+    .row
+      each url in imageUrl
+        .col-6.col-md-4.col-lg-3.view-item
+          a(href="/product/")
+            img(src= url)
+      

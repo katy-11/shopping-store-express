@@ -35,7 +35,18 @@ app.use(express.static("public"));
 app.use(express.static("views/dist"));
 
 app.get("/", authMiddleware.checkUser, (req, res) => {
-  res.render("index");
+  res.render("index", {
+  	imageUrl: [
+  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-08T18:43:37.379Z",
+    "https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-07-31T09:52:41.315Z",
+  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-11T12:36:10.287Z",
+  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/2020-08-09T03:39:30.998Z",
+  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/2020-08-09T03:31:53.617Z",
+  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/2020-08-08T17:27:39.608Z",
+  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-11T12:40:30.453Z",
+  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-08T18:43:37.379Z",
+  	]
+  });
 });
 
 app.get("/new-arrivals", authMiddleware.checkUser, categoryController.newView);

@@ -14,68 +14,99 @@ head
   link(rel="stylesheet", href="/css/page.css")
   link(rel="stylesheet", href="/css/singleItem.css")
   link(rel="stylesheet", href="/css/user.css")
+  link(rel="stylesheet", href="/css/responsive.css")
 
   title Kattie
 
-.container-fluid
+.container-fluid.free-ship
   .row.pre-header1 FREE SHIPPING ON ORDERS OVER $50
 // Navigation
-.container 
-  .row
-    a(href="/")
-      img.logo-img(src='/images/logo-kattie.png')
-.container
-  .header-menu.flex-column.flex-md-row
-    .menu-bar
-      ul.menu-bar-list
-        a(href='/new-arrivals')
-          li.menu-bar-item NEW ARRIVALS
-        a(href='/bags')
-          li.menu-bar-item BAGS
-        a(href='/tops')
-          li.menu-bar-item TOPS
-        a(href='/bottoms')
-          li.menu-bar-item BOTTOMS
-        a(href='/sales')
-          li.menu-bar-item SALES
-        a(href='/about-us')
-          li.menu-bar-item ABOUT US
-    .profile-bar
-      form(action="/search" method="GET")
-        input.mr-3.search-btn(type='search', name='q', placeholder='Search' , value=values ? values.name : "")
-      #minicart 
-        i.fas.fa-shopping-bag#cart-icon
-          span.cartCount 
-        #cart.cart
-          //- .cart-item(data-uuid= id)
-          //-   .cart-item-image
-          //-     a(href='/product/' + id)
-          //-       img(src= "")
-          //-   .cart-item-body
-          //-     .cart-item-name
-          //-       a(href='/product/' + id)= name
-          //-     .cart-item-quantity(data-uuid= id) Quantity: 10
-          //-   .cart-item-currency $
-          //-   #cartItemPrice.cart-item-price 85
+.container.header
+    .header-menu
+      .check-hamburger
+        i.fas.fa-bars
+      .logo-div
+        a(href="/") 
+          img.logo-img(src='/images/logo-kattie.png')
+      .menu-bar
+        ul.menu-bar-list
+          a(href='/new-arrivals')
+            li.menu-bar-item NEW ARRIVALS
+          a(href='/bags')
+            li.menu-bar-item BAGS
+          a(href='/tops')
+            li.menu-bar-item TOPS
+          a(href='/bottoms')
+            li.menu-bar-item BOTTOMS
+          a(href='/sales')
+            li.menu-bar-item SALE
+          a(href='/about-us')
+            li.menu-bar-item ABOUT US
+      .profile-bar
+        form(action="/search" method="GET")
+          input.mr-3.search-btn.desktop-search-btn(type='search', name='q', placeholder='Search' , value=values ? values.name : "")
+        #minicart 
+          i.fas.fa-shopping-bag#cart-icon
+            span.cartCount 
+          #cart.cart
+            //- .cart-item(data-uuid= id)
+            //-   .cart-item-image
+            //-     a(href='/product/' + id)
+            //-       img(src= "")
+            //-   .cart-item-body
+            //-     .cart-item-name
+            //-       a(href='/product/' + id)= name
+            //-     .cart-item-quantity(data-uuid= id) Quantity: 10
+            //-   .cart-item-currency $
+            //-   #cartItemPrice.cart-item-price 85
 
-      <i class="fas fa-minus"></i>
-      if user
-        #user-account.user-account
-          #user-avatar.user-avatar
-            img(src= user.avatar)
-          #user-option.user-option
-            //- ul#user-option-wrapper(class="user-option-wrapper")
-            //-   a(href="/user/profile")
-            //-     li My details
-            //-   a(href="/user/cart")
-            //-     li My cart
-            //-   a(href="/user/order")
-            //-     li My order
-            //-   a(href="/sign/out" id="sign-out")
-            //-     li Log out
-      else
-        .sign-in.sign-in-button Sign in
+        <i class="fas fa-minus"></i>
+        if user
+          #user-account.user-account
+            #user-avatar.user-avatar
+              img(src= user.avatar)
+            #user-option.user-option
+              //- ul#user-option-wrapper(class="user-option-wrapper")
+              //-   a(href="/user/profile")
+              //-     li My details
+              //-   a(href="/user/cart")
+              //-     li My cart
+              //-   a(href="/user/order")
+              //-     li My order
+              //-   a(href="/sign/out" id="sign-out")
+              //-     li Log out
+        else
+          .sign-in.sign-in-button Sign in
 block content
+.phone-menu-bar-modal
+  .phone-menu-bar-container
+    form(action="/search" method="GET")
+      input.mr-3.search-btn.phone-search-btn(type='search', name='q', placeholder='Search' , value=values ? values.name : "")
+    ul.menu-bar-list
+      a(href='/new-arrivals')
+        li.menu-bar-item 
+          span NEW ARRIVALS
+          i(class="fas fa-chevron-right")
+      a(href='/bags')
+        li.menu-bar-item 
+          span BAGS
+          i(class="fas fa-chevron-right")
+      a(href='/tops')
+        li.menu-bar-item 
+          span TOPS
+          i(class="fas fa-chevron-right")
+      a(href='/bottoms')
+        li.menu-bar-item
+          span BOTTOMS
+          i(class="fas fa-chevron-right")
+      a(href='/sales')
+        li.menu-bar-item 
+          span SALE
+          i(class="fas fa-chevron-right")
+      a(href='/about-us')
+        li.menu-bar-item 
+          span ABOUT US
+          i(class="fas fa-chevron-right")
 .signin-modal
   .signin-container
     .signin-left
@@ -107,39 +138,36 @@ block content
 .container
     .row
         .col-sm-12.col-lg-2
-          div
-            label.font-7.label-bottom FRAIS
-            ul.menu-list-bottom.flex-column
-              a(href='/new-arrivals')
-                li.menu-item-bottom NEW ARRIVALS
-              a(href='/bags')
-                li.menu-item-bottom SHOP BAGS
-              a(href='/tops')
-                li.menu-item-bottom SHOP TOPS
-              a(href='/bottoms')
-                li.menu-item-bottom SHOP BOTTOM
-              a(href='/sales')
-                li.menu-item-bottom SHOP SALES
+          label.font-7.label-bottom FRAIS
+          ul.menu-list-bottom.flex-column
+            a(href='/new-arrivals')
+              li.menu-item-bottom NEW ARRIVALS
+            a(href='/bags')
+              li.menu-item-bottom SHOP BAGS
+            a(href='/tops')
+              li.menu-item-bottom SHOP TOPS
+            a(href='/bottoms')
+              li.menu-item-bottom SHOP BOTTOM
+            a(href='/sales')
+              li.menu-item-bottom SHOP SALES
         .col-sm-12.col-lg-3
           label.font-7.label-bottom HELP
-          .menu-bar
-            ul.menu-list-bottom.flex-column
-              a(href='/about-us')
-                li.menu-item-bottom SHIPPING AND RETURN
-              a(href='/about-us')
-                li.menu-item-bottom PAYMENT METHOD
-              a(href='/about-us')
-                li.menu-item-bottom ASK QUESTION
+          ul.menu-list-bottom.flex-column
+            a(href='/about-us')
+              li.menu-item-bottom SHIPPING AND RETURN
+            a(href='/about-us')
+              li.menu-item-bottom PAYMENT METHOD
+            a(href='/about-us')
+              li.menu-item-bottom ASK QUESTION
         .col-sm-12.col-lg-3
           label.font-7.label-bottom CONTACT
-          .menu-bar
-            ul.menu-list-bottom.flex-column
-              a(href='tel:+61404888888')
-                li.menu-item-bottom 123-456-7890
-              a(href='mailto:10hohuyen1114@gmail.com')
-                li.menu-item-bottom HOHUYEN1114@GMAIL.COM
-              a(href='/about-us')
-                li.menu-item-bottom MORE INFO
+          ul.menu-list-bottom.flex-column
+            a(href='tel:+61404888888')
+              li.menu-item-bottom 123-456-7890
+            a(href='mailto:10hohuyen1114@gmail.com')
+              li.menu-item-bottom HOHUYEN1114@GMAIL.COM
+            a(href='/about-us')
+              li.menu-item-bottom MORE INFO
         .col-sm-12.col-lg-4
           label.font-7.label-bottom NEWS LETTER
           .subscribe
@@ -154,4 +182,7 @@ script(src="/js/auth.client.js")
 script(src="/js/refinement.js")
 script(src="/js/sign.js")
 script(src="/js/user.js")
-script(src="/js/otherColor.js")
+script(src="/js/slide.js")
+script(src="/js/hamburger.js")
+
+

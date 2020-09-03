@@ -133,6 +133,12 @@ function outsideClick1(event) {
       cart.textContent = "";
       a = false;
     }
+    if (pBox && !document.querySelector('.refinement-bar').contains(event.target)) {
+      document.querySelector('.refinement-1').style.display = "none";
+      document.querySelector('.refinement-2').style.display = "none";
+      document.querySelector('.refinement-3').style.display = "none";
+      pBox = false;
+    }
 }
 
 function addToCart(event) {
@@ -181,6 +187,7 @@ const cartIcon = document.getElementById("cart-icon");
 const cart = document.getElementById("cart");
 const addToCartBtn = document.querySelectorAll(".add-to-cart");
 const productBagBtn = document.querySelector(".product-bag");
+const checkHamburger = document.querySelector(".check-hamburger");
 
 // when the page is ready
 document.addEventListener("DOMContentLoaded", () => cartPageReady());
@@ -195,10 +202,10 @@ window.addEventListener("click", (event) => outsideClick1(event));
 addToCartBtn.forEach((btn) => {
   btn.addEventListener("click", (event) => addToCart(event));
 });
+
 // addingg item on product detail page
-productBagBtn.addEventListener("click", (event) => addToCart(event));
-
-
-
-
-
+try {
+  productBagBtn.addEventListener("click", (event) => addToCart(event));
+} catch (error) {
+  console.log(error)
+}
