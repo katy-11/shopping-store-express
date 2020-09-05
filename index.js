@@ -45,7 +45,17 @@ app.get("/", authMiddleware.checkUser, (req, res) => {
   	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/2020-08-08T17:27:39.608Z",
   	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-11T12:40:30.453Z",
   	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-08T18:43:37.379Z",
-  	]
+  	],
+    imageLink: [
+    "/product/5f50d6836097939387e972cd",
+    "/product/5f50d71c6097939387e972d0",
+    "/product/5f50d74c6097939387e972d1",
+    "/product/5f50d6f16097939387e972cf",
+    "/product/5f50d6ab6097939387e972ce",
+    "/product/5f50d5bf6097939387e972cc",
+    "/product/5f50d7746097939387e972d2",
+    "/product/5f50d6836097939387e972cd"
+    ]
   });
 });
 

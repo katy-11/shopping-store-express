@@ -1,13 +1,11 @@
 // miniMenu
 function openMiniMenu() {
-  phoneMenuModal.style.visibility = "visible";
-  phoneMenuModal.style.transform = "translateX(100%)";
+	phoneMenuModal.classList.toggle("phone-menu-bar-open");
 }
 
 function closeMiniMenu(event) {
   if (event.target == phoneMenuModal) {
-    phoneMenuModal.style.visibility = "hidden";
-    phoneMenuModal.style.transform = "translateX(0)";
+	phoneMenuModal.classList.toggle("phone-menu-bar-open");
   }
 }
 const phoneMenuModal = document.querySelector(".phone-menu-bar-modal");

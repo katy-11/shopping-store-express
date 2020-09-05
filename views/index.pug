@@ -31,19 +31,19 @@ block content
   .container.trending-list
     .row
       .col-6.col-md-4.col-lg-3.trending-item
-        a(href="/product/5f181c433861bb3a5c4d5ed5")
+        a(href="/product//5f50d6836097939387e972cd")
           .image.image-4
           p Buckle Strap Croc-Effect Bag
       .col-6.col-md-4.col-lg-3.trending-item
-        a(href="/product/5f3291bee0fe9107b8c9f904")
+        a(href="/product/5f50d7746097939387e972d2")
           .image.image-5
           p Textured Double Zip Backpack
       .col-6.col-md-4.col-lg-3.trending-item
-        a(href="/product/5f3291bee0fe9107b8c9f904")
+        a(href="/product/5f50d6836097939387e972cd")
           .image.image-6
           p Geometric Tote Bag
       .col-6.col-md-4.col-lg-3.trending-item
-        a(href="/product/5f3291bee0fe9107b8c9f904")
+        a(href="/product/5f50d6836097939387e972cd")
           .image.image-7
           p Metal Frame Sunglasses
   //- Start Most viewed
@@ -51,8 +51,8 @@ block content
   .container.home-header.font-11 Most-viewed
   .container.most-viewed
     .row
-      each url in imageUrl
+      each url, index in imageUrl
         .col-6.col-md-4.col-lg-3.view-item
-          a(href="/product/")
+          a(href=imageLink[index])
             img(src= url)
       

@@ -35,8 +35,13 @@ block content
 					div Color: 
 						span= product.color
 					.custom-pd-color
+						a( href=`/product/${product._id}`)
+							.color-item(class= `color-item-${product.color}`)
 						each other in otherProducts
 							a( href=`/product/${other._id}`)
 								.color-item(class= `color-item-${other.color}`)
 				.pd-bag
 					.product-bag Add to bag 
+					//- .product-bag
+					//- 	i(class="fas fa-check")
+					//- 	span Added

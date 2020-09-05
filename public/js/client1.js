@@ -8,6 +8,7 @@ function totalPriceDiv() {
     </div>
     <div class="cart-item-currency">$</div>
     <div class="cart-price"></div>
+    <div class="mini-price"></div>
     `;
   return totalPrice;
 }
@@ -150,6 +151,29 @@ function addToCart(event) {
   databaseUpdate();
 }
 
+function changeColor1(event) {
+  event.target.style.backgroundColor = "#aba7a7";
+  event.target.innerHTML = `
+    <i class="fas fa-check"></i>
+    <span> Added </span>
+  `;
+  setTimeout(() => {
+    event.target.textContent = `Add to bag`
+    event.target.style.backgroundColor = "rgb(158, 151, 152)";
+  }, 2000);
+}
+
+function changeColor2(event) {
+  event.target.style.backgroundColor = "#333030d9";
+  event.target.innerHTML = `
+    <i class="fas fa-check"></i>
+    <span> Added </span>
+  `;
+  setTimeout(() => {
+    event.target.textContent = `Add to bag`
+    event.target.style.backgroundColor = "#333030";
+  }, 2000);
+}
 function databaseUpdate() {
   if (getCookie("user_id")) {
   axios({
@@ -201,11 +225,13 @@ window.addEventListener("click", (event) => outsideClick1(event));
 // when adding item to cart
 addToCartBtn.forEach((btn) => {
   btn.addEventListener("click", (event) => addToCart(event));
+  btn.addEventListener("click", (event) => changeColor1(event))
 });
 
 // addingg item on product detail page
 try {
   productBagBtn.addEventListener("click", (event) => addToCart(event));
+  productBagBtn.addEventListener("click", (event) => changeColor2(event));
 } catch (error) {
   console.log(error)
 }
