@@ -7,14 +7,14 @@ async function checkAuth1(event) {
   const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
 
   if (!emailRegex.test(email)) {
-    text = "Please enter your email";
+    text = "Please enter valid email";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
     return false;
   }
 
   if (password.length > 20) {
-    text = "Password must be shorter than 20 character";
+    text = "Password must be shorter than 20 scharacter";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
     return false;
@@ -55,8 +55,8 @@ function checkAuth2() {
     return false;
   }
 
-  if (password.length < 6) {
-    text = "Password must be longer than 6 character";
+  if (password.length > 20) {
+    text = "Password must be shorter than 20 character";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
     return false;
@@ -70,7 +70,7 @@ function checkAuth2() {
   }
 
   if (isNaN(phone) || phone.length != 10) {
-    text = "Please Enter valid phone number";
+    text = "Phone number have 10 digits";
     error_message.innerHTML = text;
     error_message.classList.add("input-block", "input-block-wrong");
     return false;

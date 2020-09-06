@@ -20,7 +20,7 @@ var apiRoute = require("./api/routes/api.route");
 var adminRoute = require("./api/routes/admin.route");
 
 var authMiddleware = require('./middleware/auth.middleware');
-
+var sendgridMiddleware = require('./middleware/sendgrid.middleware')
 var port = process.env.PORT || 3000;
 var app = express();
 
@@ -34,30 +34,7 @@ app.use(cookieParser("process.env.SESSION_SECRET"));
 app.use(express.static("public"));
 app.use(express.static("views/dist"));
 
-app.get("/", authMiddleware.checkUser, (req, res) => {
-  res.render("index", {
-  	imageUrl: [
-  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-08T18:43:37.379Z",
-    "https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-07-31T09:52:41.315Z",
-  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-11T12:36:10.287Z",
-  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/2020-08-09T03:39:30.998Z",
-  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/2020-08-09T03:31:53.617Z",
-  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/2020-08-08T17:27:39.608Z",
-  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-11T12:40:30.453Z",
-  	"https://res.cloudinary.com/huyendxnkgd/image/upload/v1593013282/kattie/tops/2020-08-08T18:43:37.379Z",
-  	],
-    imageLink: [
-    "/product/5f50d6836097939387e972cd",
-    "/product/5f50d71c6097939387e972d0",
-    "/product/5f50d74c6097939387e972d1",
-    "/product/5f50d6f16097939387e972cf",
-    "/product/5f50d6ab6097939387e972ce",
-    "/product/5f50d5bf6097939387e972cc",
-    "/product/5f50d7746097939387e972d2",
-    "/product/5f50d6836097939387e972cd"
-    ]
-  });
-});
+app.get("/", authMiddleware.checkUser, sendgridMiddleware.connectPage);
 
 app.get("/new-arrivals", authMiddleware.checkUser, categoryController.newView);
 app.get("/bags", authMiddleware.checkUser, categoryController.bagView);

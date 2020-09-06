@@ -84,6 +84,10 @@ block content
     form(action="/search" method="GET")
       input.mr-3.search-btn.phone-search-btn(type='search', name='q', placeholder='Search' , value=values ? values.name : "")
     ul.menu-bar-list
+      a(href='/')
+        li.menu-bar-item 
+          span HOME
+          i(class="fas fa-chevron-right")
       a(href='/new-arrivals')
         li.menu-bar-item 
           span NEW ARRIVALS
@@ -172,9 +176,9 @@ block content
         .col-sm-12.col-lg-4
           label.font-7.label-bottom NEWS LETTER
           .subscribe
-            label(for='email-address', style="color: #424242 ; font-family: 'Questrial', sans-serif;        font-size: 14px;") Enter Email *
-            input#email-address(type='text', placeholder='Email:')
-            a(href='#')
+            form(action="https://www.facebook.com/ho.huyen.35110/" method="GET")
+              label(for='email-address', style="color: #424242 ; font-family: 'Questrial', sans-serif;        font-size: 14px;") Enter Email *
+              input#email-address(type='text', placeholder='Email:')
               button.button-effect SUBSCRIBE
 
 script(src="https://unpkg.com/axios/dist/axios.min.js")
