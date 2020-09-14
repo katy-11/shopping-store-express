@@ -1,7 +1,8 @@
 ## General info
 This project is a commmercial shopping site named Kattie.  
 Deployed: `http://store-2-huyen.herokuapp.com`
-	
+
+<img src="public/images/preview.PNG" >
 ## Technologies
 Project is created with:
 * express: 4.17.1
