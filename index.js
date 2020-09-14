@@ -6,8 +6,10 @@ var cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+	useCreateIndex: true,	
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: false
 });
 
 var productRoute = require("./routes/product.route");

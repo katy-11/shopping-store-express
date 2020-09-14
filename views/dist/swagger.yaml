@@ -4,9 +4,9 @@ servers:
   - description: SwaggerHub API Auto Mocking
     url: http://localhost:3000
 info:
-  description: Test APIs document Swagger
+  description: Kattie APIs document Swagger
   version: "1.0.0"
-  title: Thu vien sach APIs document Swagger
+  title: KATTIE APIs document Swagger
   termsOfService: "http://swagger.io/terms/"
   contact:
     email: apiteam@swagger.io
