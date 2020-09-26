@@ -1,15 +1,16 @@
 ## General info
 This project is a commmercial shopping site named Kattie.  
-Deployed: [http://store-2-huyen.herokuapp.com](http://store-2-huyen.herokuapp.com)
+Deployed: [http://store-2-huyen.herokuapp.com](http://store-2-huyen.herokuapp.com)  
 Preview:  
+<br>
 <img src="public/images/previewWeb.PNG" >
-
+<br>
 API documentation using Swagger: [https://store-2-huyen.herokuapp.com/api/swagger](https://store-2-huyen.herokuapp.com/api/swagger)  
-
+<br>
 <img src="public/images/previewapi.PNG" >
-
-Get all user database: [https://store-2-huyen.herokuapp.com/api/user/database](https://store-2-huyen.herokuapp.com/api/user/database)
-Get all product database: [https://store-2-huyen.herokuapp.com/api/product/database](https://store-2-huyen.herokuapp.com/api/product/database)
+<br>
+Get all user database: [https://store-2-huyen.herokuapp.com/api/user/database](https://store-2-huyen.herokuapp.com/api/user/database)  
+Get all product database: [https://store-2-huyen.herokuapp.com/api/product/database](https://store-2-huyen.herokuapp.com/api/product/database)  
 
 ## Technologies
 Project is created with:
