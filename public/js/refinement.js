@@ -56,15 +56,12 @@ function createProductItem(item) {
       <a href="/product/${item._id}">
         <img src=${item.imageUrl}>
       </a>
+      <div class="add-to-cart">Add to bag</div>
     </div>
     <div class="product-title-body">
       <a class="product-title-name" href="/product/${item._id}">${item.name}</a>
          <a href="/product/${item._id}"></a>
       <div class="product-title-price">AU$${item.price}.00</div>
-    </div>
-    <div class="product-title-footer">
-      <div class="product-title-color"></div>
-      <div class="add-to-cart">Add to bag</div>
     </div>
   `
   return productItem;
